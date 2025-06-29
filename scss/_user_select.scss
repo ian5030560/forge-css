@@ -1,0 +1,12 @@
+@use "./util" as *;;
+@include map-properties((
+    user-select: (
+        name: user-select,
+        css: -webkit-user-select user-select,
+        values: (
+            none: none none, 
+            text: text text, 
+            all: all all
+        )
+    )
+));

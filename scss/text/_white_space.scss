@@ -1,0 +1,12 @@
+@use "../util" as *;
+@include map-properties((
+    white-space: (
+        name: white-space,
+        css: white-space,
+        values: (
+            pre: pre, 
+            wrap: wrap, 
+            nowrap: nowrap
+        )
+    )
+));

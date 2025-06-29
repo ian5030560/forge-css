@@ -1,0 +1,13 @@
+@use "./util" as *;;
+@include map-properties((
+    object-fit: (
+        name: object-fit,
+        css: object-fit,
+        values: (
+            fill: fill, 
+            contain: contain, 
+            cover: cover, 
+            none: none
+        )
+    )
+));

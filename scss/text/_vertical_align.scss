@@ -1,0 +1,15 @@
+@use "../util" as *;
+@include map-properties((
+    vertical-align: (
+        name: vertical-align,
+        css: vertical-align,
+        values: (
+            baseline: baseline, 
+            top: top, 
+            middle: middle, 
+            bottom: bottom, 
+            text-top: text-top, 
+            text-bottom: text-bottom
+        )
+    )
+));

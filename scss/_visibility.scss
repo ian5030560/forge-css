@@ -1,0 +1,11 @@
+@use "./util" as *;;
+@include map-properties((
+    visibility: (
+        name: visibility,
+        css: visibility,
+        values: (
+            visible: visible, 
+            hidden: hidden
+        )
+    )
+));

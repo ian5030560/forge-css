@@ -1,0 +1,30 @@
+@use "./util" as *;;
+
+$-values: (
+    auto: auto, 
+    "0": 0%, 
+    "25": 25%, 
+    "50": 50%,
+    "75": 75%, 
+    "100": 100%
+);
+
+@include map-properties((
+    width: (
+        name: width,
+        css: width,
+        values: $-values
+    ),
+
+    min-width: (
+        name: min-width,
+        css: min-width,
+        values: $-values
+    ),
+
+    max-width: (
+        name: max-width,
+        css: max-width,
+        values: $-values
+    )
+));

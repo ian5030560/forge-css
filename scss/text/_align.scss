@@ -1,0 +1,13 @@
+@use "../util" as *;
+@include map-properties((
+    text-align: (
+        name: text-align,
+        css: text-align,
+        values: (
+            center: center, 
+            left: left, 
+            right: right, 
+            justify: justify
+        )
+    )
+));

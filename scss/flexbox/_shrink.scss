@@ -1,0 +1,11 @@
+@use "../util" as *;
+@include map-properties((
+    flex-shrink: (
+        name: flex-shrink,
+        css: flex-shrink,
+        values: (
+            "0": 0,
+            "1": 1
+        )
+    )
+));

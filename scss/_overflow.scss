@@ -1,0 +1,27 @@
+@use "./util" as *;;
+
+$-values: (
+    auto: auto, 
+    visible: visible, 
+    hidden: hidden, 
+    clip: clip, 
+    scroll: scroll
+);
+
+@include map-properties((
+    overflow: (
+        name: overflow,
+        css: overflow,
+        values: $-values
+    ),
+    overflow-x: (
+        name: overflow-x,
+        css: overflow-x,
+        values: $-values
+    ),
+    overflow-y: (
+        name: overflow-y,
+        css: overflow-y,
+        values: $-values
+    )
+));

@@ -1,0 +1,19 @@
+@use "../util" as *;
+@include map-properties((
+    justify-content: (
+        name: justify-content,
+        css: justify-content,
+        values: (
+            center: center, 
+            start: start, 
+            end: end, 
+            left: left, 
+            right: right, 
+            baseline: baseline, 
+            stretch: stretch, 
+            space-between: space-between, 
+            space-around: space-around, 
+            space-evenly: space-evenly
+        )
+    )
+));

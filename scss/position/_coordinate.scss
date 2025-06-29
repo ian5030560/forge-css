@@ -1,0 +1,30 @@
+@use "../util" as *;
+
+$-values: (
+    "0": 0,
+    "50": 50%,
+    "100": 100%
+);
+
+@include map-properties((
+    top: (
+        name: top,
+        css: top,
+        values: $-values
+    ),
+    left: (
+        name: left,
+        css: left,
+        values: $-values
+    ),
+    bottom: (
+        name: bottom,
+        css: bottom,
+        values: $-values
+    ),
+    right: (
+        name: right,
+        css: right,
+        values: $-values
+    )
+));

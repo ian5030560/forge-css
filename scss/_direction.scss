@@ -1,0 +1,11 @@
+@use "./util" as *;
+@include map-properties((
+    direction: (
+        name: direction,
+        css: direction,
+        values: (
+            ltr: ltr,
+            rtl: rtl
+        )
+    )
+))

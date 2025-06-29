@@ -1,0 +1,16 @@
+@use "../util" as *;
+@include map-properties((
+    font-size: (
+        name: font-size,
+        css: font-size,
+        values: (
+            "smaller": 4px,
+            "small": 8px,
+            "normal": 16px,
+            "median": 24px,
+            "large": 32px,
+            "larger": 40px,
+            "xlarge": 48px
+        )
+    )
+));

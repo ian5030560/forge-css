@@ -1,0 +1,17 @@
+@use "../util" as *;
+@include map-properties((
+    font-italic: (
+        name: font-italic,
+        css: font-style,
+        values: only-default(italic)
+    ),
+
+    font-family: (
+        name: font,
+        css: font-family,
+        values: (
+            system: system,
+            monospace: monospace
+        )
+    )
+));

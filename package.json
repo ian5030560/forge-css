@@ -1,0 +1,24 @@
+{
+  "name": "forge-css",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --p ./tsconfig.json && vite build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "style-lint": "npx stylelint sass/**/*",
+    "build-sass": "sass scss:dir"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.89.2",
+    "stylelint": "^16.21.0",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}

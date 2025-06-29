@@ -1,0 +1,58 @@
+@use "./util" as *;;
+
+$-values: (
+    "n1": -1px,
+    "0": 0px,
+    "1": 4px,
+    "2": 8px,
+    "3": 12px,
+    "4": 16px,
+    "5": 20px
+);
+$-binary-values: (
+    "n1": -1px -1px,
+    "0": 0px 0px,
+    "1": 4px 4px,
+    "2": 8px 8px,
+    "3": 12px 12px,
+    "4": 16px 16px,
+    "5": 20px 20px
+);
+
+@include map-properties((
+    padding: (
+        name: "padding",
+        css: padding,
+        values: $-values
+    ),
+    padding-x: (
+        name: "padding-x",
+        css: padding-left padding-right,
+        values: $-binary-values
+    ),
+    padding-y: (
+        name: "padding-y",
+        css: padding-top padding-bottom,
+        values: $-binary-values
+    ),
+    padding-top: (
+        name: "padding-top",
+        css: padding-top,
+        values: $-values,
+    ),
+    padding-bottom: (
+        name: "padding-bottom",
+        css: padding-bottom,
+        values: $-values,
+    ),
+    padding-left: (
+        name: "padding-left",
+        css: padding-left,
+        values: $-values,
+    ),
+    padding-right: (
+        name: "padding-right",
+        css: padding-right,
+        values: $-values,
+    )
+));

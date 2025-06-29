@@ -1,0 +1,23 @@
+@use "../util" as *;
+
+$-values: (
+    stretch: stretch, 
+    center: center, 
+    start: start, 
+    end: end, 
+    left: left, 
+    right: right
+);
+
+@include map-properties((
+    align-items:(
+        name: "align-items",
+        css: align-items,
+        values: $-values
+    ),
+    align-self:(
+        name: "align-self",
+        css: align-self,
+        values: $-values
+    )
+));

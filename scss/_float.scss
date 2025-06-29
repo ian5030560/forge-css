@@ -1,0 +1,12 @@
+@use "./util" as *;
+@include map-properties((
+    float: (
+        name: float,
+        css: float,
+        values: (
+            left: left, 
+            right: right, 
+            none: none
+        )
+    )
+));

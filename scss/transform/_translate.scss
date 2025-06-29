@@ -1,0 +1,33 @@
+@use "../util" as *;
+@include map-properties((
+    translate: (
+        name: translate,
+        css: transform,
+        values: (
+            "n50": translate(-50%, -50%), 
+            "n100": translate(-100%, -100%), 
+            "50": translate(50%, 50%), 
+            "100": translate(100%, 100%)            
+        )
+    ),
+    translate-x: (
+        name: translate-x,
+        css: transform,
+        values: (
+            "n50": translateX(-50%), 
+            "n100": translateX(-100%), 
+            "50": translateX(50%), 
+            "100": translateX(100%)            
+        )
+    ),
+    translate-y: (
+        name: translate-y,
+        css: transform,
+        values: (
+            "n50": translateY(-50%), 
+            "n100": translateY(-100%), 
+            "50": translateY(50%), 
+            "100": translateY(100%)            
+        )
+    )
+));

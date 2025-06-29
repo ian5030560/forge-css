@@ -1,0 +1,131 @@
+@use "./rwd" as rwd;
+@use "sass:meta";
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+
+@mixin -handle-css-list($selector, $css, $values){
+    $length: list.length($css);
+
+    @each $name, $value-list in $values{
+        @if meta.type-of($value-list) != list{
+            @error "The value of each item in the values should be list.";
+        }
+        
+        @if $length != list.length($value-list){
+            @error "The length of css properties must be aligned with the length of the value of each item in the values.";
+        }
+
+        @if string.length($name) == 0{
+            .#{$selector}{
+                @for $i from 1 through $length{
+                    #{list.nth($css, $i)}: #{list.nth($value-list, $i)};
+                }
+            }
+        } @else{
+            .#{$selector}-#{$name}{
+                @for $i from 1 through $length{
+                    #{list.nth($css, $i)}: #{list.nth($value-list, $i)};
+                }
+            }
+        }
+    }
+}
+
+@function -list-contains($list, $object){
+    @return list.index($list, $object) != null;
+}
+
+@mixin -handle-css-string($selector, $css, $values){
+    $types: string number color calculation;
+
+    @each $name, $value in $values{
+        @if not list-contains($types, meta.type-of($value)){
+            @error "The type of #{$name} is not accepted";
+        }
+
+        @if string.length($name) == 0{
+            .#{$selector}{
+                #{$css}: #{$value};
+            }
+        } @else{
+            .#{$selector}-#{$name}{
+                #{$css}: #{$value};
+            }
+        }
+    }
+}
+
+@mixin -apply-selector-mixin($selector, $css, $values){
+    @if meta.type-of($css) == string{
+        @include -handle-css-string($selector, $css, $values);
+    } @else if meta.type-of($css) == list{
+        @include -handle-css-list($selector, $css, $values);
+    } @else{
+        @error "css should be string or list of string.";
+    }
+}
+
+@mixin -iterate-break-points($name, $css, $values){
+    @each $key, $point in rwd.$break-points{
+        @if $key == "xs"{
+            @media (width < #{$point}) {
+                @include -apply-selector-mixin(#{$name}-#{$key}, $css, $values);
+            }
+        } @else{
+            @media (width >= #{$point}) {
+                @include -apply-selector-mixin(#{$name}-#{$key}, $css, $values);
+            }
+        }
+    }
+}
+
+@function -get-or-default($value, $default){
+    /* stylelint-disable-next-line scss/at-if-no-null */
+    @if $value == null{
+        @return $default;
+    } @else{
+        @return $value;
+    }
+}
+
+@mixin -make-property-mixin($property){
+    $name: map.get($property, "name");
+    $responsive: -get-or-default(map.get($property, "responsive"), true);
+    $values: map.get($property, "values");
+    $css: map.get($property, "css");
+
+    @include -apply-selector-mixin($name, $css, $values);
+    
+    @if $responsive{
+        @include -iterate-break-points($name, $css, $values);
+    }
+}
+
+/* format: name[-rwd][-value]; */
+
+/* type Property{
+*  responsive: boolean = true
+*  name: string
+*  css: string | list<string> // seperate with space
+*  values: map<string, string | list<string>> // seperate with space
+* }
+*/
+
+/*
+* map and apply class names of properties
+* @param property-map: map<Property>
+*/
+@mixin map-properties($property-map){
+    @each $key in map.keys($property-map){
+        @include -make-property-mixin(map.get($property-map, $key));
+    }
+}
+
+/*
+* use it when property has only default.
+* @param $value: string | list<string>
+**/
+@function only-default($value){
+    @return ('': $value)
+}

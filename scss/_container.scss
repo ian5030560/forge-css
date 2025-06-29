@@ -1,0 +1,84 @@
+@use "./rwd" as rwd;
+@use "sass:map";
+
+@mixin -make-container-mixin($selector, $widths){
+    @each $key, $point in rwd.$break-points{
+        @if $key == "xs"{
+            @media (width < #{$point}) {
+                .#{$selector}{
+                    width: #{map.get($widths, $key)};
+                }
+            }
+        } @else{
+            @media (width >= #{$point}) {
+                .#{$selector}{
+                    width: #{map.get($widths, $key)};
+                }
+            }
+        }
+    }
+}
+
+@mixin -make-containers($containers){
+    @each $name, $widths in $containers{
+        @include -make-container-mixin($name, $widths);
+    }
+}
+
+$-container: "container";
+
+@include -make-containers((
+    #{$-container}: (
+        xs: 100%,
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xlg: 1140px,
+        xxlg: 1320px
+    ),
+
+    #{$-container}-sm: (
+        xs: 100%,
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xlg: 1140px,
+        xxlg: 1320px
+    ),
+
+    #{$-container}-md: (
+        xs: 100%,
+        sm: 100%,
+        md: 720px,
+        lg: 960px,
+        xlg: 1140px,
+        xxlg: 1320px
+    ),
+
+    #{$-container}-lg: (
+        xs: 100%,
+        sm: 100%,
+        md: 100%,
+        lg: 960px,
+        xlg: 1140px,
+        xxlg: 1320px
+    ),
+
+    #{$-container}-xlg: (
+        xs: 100%,
+        sm: 100%,
+        md: 100%,
+        lg: 100%,
+        xlg: 1140px,
+        xxlg: 1320px
+    ),
+
+    #{$-container}-xxlg: (
+        xs: 100%,
+        sm: 100%,
+        md: 100%,
+        lg: 100%,
+        xlg: 100%,
+        xxlg: 1320px
+    ),
+));

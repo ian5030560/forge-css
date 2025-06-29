@@ -1,0 +1,14 @@
+@use "../util" as *;
+@include map-properties((
+    text-truncation: (
+        name: text-truncation,
+        css: overflow text-overflow white-space,
+        values: only-default(hidden ellipsis nowrap)
+    ),
+
+    text-break: (
+        name: text-break,
+        css: word-wrap word-break,
+        values: only-default(break-word break-word)
+    )
+));

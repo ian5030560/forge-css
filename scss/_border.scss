@@ -1,0 +1,12 @@
+@use "./util" as *;
+@include map-properties((
+    border-radius: (
+        name: border-radius,
+        css: border-radius,
+        values: (
+            "square": 0%,
+            "rounded": 10%,
+            "circle": 50%
+        )
+    )
+));

@@ -1,0 +1,58 @@
+@use "./util" as *;;
+
+$-values: (
+    "n1": -1px,
+    "0": 0px,
+    "1": 4px,
+    "2": 8px,
+    "3": 12px,
+    "4": 16px,
+    "5": 20px
+);
+$-binary-values: (
+    "n1": -1px -1px,
+    "0": 0px 0px,
+    "1": 4px 4px,
+    "2": 8px 8px,
+    "3": 12px 12px,
+    "4": 16px 16px,
+    "5": 20px 20px
+);
+
+@include map-properties((
+    margin: (
+        name: "margin",
+        css: margin,
+        values: $-values
+    ),
+    margin-x: (
+        name: "margin-x",
+        css: margin-left margin-right,
+        values: $-binary-values
+    ),
+    margin-y: (
+        name: "margin-y",
+        css: margin-top margin-bottom,
+        values: $-binary-values
+    ),
+    margin-top: (
+        name: "margin-top",
+        css: margin-top,
+        values: $-values,
+    ),
+    margin-bottom: (
+        name: "margin-bottom",
+        css: margin-bottom,
+        values: $-values,
+    ),
+    margin-left: (
+        name: "margin-left",
+        css: margin-left,
+        values: $-values,
+    ),
+    margin-right: (
+        name: "margin-right",
+        css: margin-right,
+        values: $-values,
+    )
+));

@@ -1,0 +1,13 @@
+@use "../util" as *;
+@include map-properties((
+    flex-direction: (
+        name: "flex-direction",
+        css: flex-direction,
+        values: (
+            row: row, 
+            row-reverse: row-reverse, 
+            column: column, 
+            column-reverse: column-reverse
+        )
+    )
+));

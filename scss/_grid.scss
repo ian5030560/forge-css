@@ -1,0 +1,40 @@
+@use "./util" as *;
+@use "sass:map";
+@use "sass:math";
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 16px;
+
+    & + &{
+        margin-top: 8px;
+    }
+
+    & > *{
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-top: 0;
+    }
+}
+
+$-col-values: (
+    '': "1 0 0" auto
+);
+
+@for $i from 1 through 12{
+    $-col-values: map.merge($-col-values, (
+        #{$i}: "0 0 0" #{math.percentage(math.div($i, 12))}
+    ));
+}
+
+@include map-properties((
+    col: (
+        name: col,
+        css: flex width,
+        values: $-col-values
+    )
+));

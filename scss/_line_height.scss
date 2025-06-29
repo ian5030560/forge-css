@@ -1,0 +1,13 @@
+@use "./util" as *;
+@include map-properties((
+    line-height: (
+        name: line-height,
+        css: line-height,
+        values: (
+            "1": 1,
+            "small": 1.25,
+            "normal": 1.5,
+            "large": 2
+        )
+    )
+))

@@ -1,0 +1,11 @@
+@use "../util" as *;
+@include map-properties((
+    flex-wrap: (
+        name: flex-wrap,
+        css: flex-wrap,
+        values: (
+            wrap: wrap, 
+            nowrap: nowrap
+        )
+    )
+));

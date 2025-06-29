@@ -1,0 +1,15 @@
+@use "./util" as *;
+@include map-properties((
+    display: (
+        name: display,
+        css: display,
+        values: (
+            flex: flex, 
+            inline-flex: inline-flex, 
+            block: block, 
+            inline-block: inline-block, 
+            inline: inline, 
+            none: none
+        )
+    )
+));

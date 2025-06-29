@@ -1,0 +1,14 @@
+@use "./util" as *;;
+@include map-properties((
+    vstack: (
+        name: vstack,
+        css: display flex-direction,
+        values: only-default(flex column),
+    ),
+
+    hstack: (
+        name: hstack,
+        css: display flex-direction,
+        values: only-default(flex row),
+    )
+));

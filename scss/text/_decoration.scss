@@ -1,0 +1,12 @@
+@use "../util" as *;
+@include map-properties((
+    text-decoration: (
+        name: text-decoration,
+        css: text-decoration,
+        values: (
+            underline: underline, 
+            overline: overline, 
+            line-through: line-through
+        )
+    )
+));

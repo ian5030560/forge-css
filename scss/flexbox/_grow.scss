@@ -1,0 +1,11 @@
+@use "../util" as *;
+@include map-properties((
+    flex-grow: (
+        name: flex-grow,
+        css: flex-grow,
+        values: (
+            "0": 0,
+            "1": 1
+        )
+    )
+));

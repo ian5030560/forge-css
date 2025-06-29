@@ -1,0 +1,15 @@
+@use "./util" as *;;
+@include map-properties((
+    z-index: (
+        name: z-index,
+        css: z-index,
+        values: (
+            "-2": -2,
+            "-1": -1,
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3
+        )
+    )
+))
