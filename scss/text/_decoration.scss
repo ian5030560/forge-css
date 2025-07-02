@@ -2,6 +2,7 @@
 @include map-properties((
     text-decoration: (
         name: text-decoration,
+        responsive: config("text", "decoration", "responsive"),
         css: text-decoration,
         values: (
             underline: underline, 

@@ -2,6 +2,7 @@
 @include map-properties((
     display: (
         name: display,
+        responsive: config("display", "responsive"),
         css: display,
         values: (
             flex: flex, 

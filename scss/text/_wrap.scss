@@ -2,6 +2,7 @@
 @include map-properties((
     text-wrap: (
         name: text-wrap,
+        responsive: config("text", "wrap", "responsive"),
         css: text-wrap,
         values: (
             wrap: wrap, 

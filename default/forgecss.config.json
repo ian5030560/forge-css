@@ -76,7 +76,7 @@
         "wrap": {
             "responsive": false
         },
-        "truncate": {
+        "truncation": {
             "responsive": false
         },
         "break": {
@@ -200,6 +200,26 @@
             "3": "12px",
             "4": "16px",
             "5": "20px"
+        },
+        "x": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        },
+        "y": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
         }
     },
     "padding": {
@@ -250,6 +270,26 @@
             "3": "12px",
             "4": "16px",
             "5": "20px"
+        },
+        "x": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        },
+        "y": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
         }
     },
     "width": {
@@ -266,7 +306,13 @@
             "responsive": false
         },
         "translate": {
-            "responsive": false
+            "responsive": false,
+            "x": {
+                "responsive": false
+            },
+            "y": {
+                "responsive": false
+            }
         }
     },
     "direction": {

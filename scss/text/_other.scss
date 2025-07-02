@@ -2,12 +2,14 @@
 @include map-properties((
     text-truncation: (
         name: text-truncation,
+        responsive: config("text", "truncation", "responsive"),
         css: overflow text-overflow white-space,
         values: only-default(hidden ellipsis nowrap)
     ),
 
     text-break: (
         name: text-break,
+        responsive: config("text", "break", "responsive"),
         css: word-wrap word-break,
         values: only-default(break-word break-word)
     )

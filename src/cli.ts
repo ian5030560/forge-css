@@ -2,6 +2,7 @@
 import { program } from "commander";
 import process from "process";
 import forgeCss from ".";
+import { writeFileSync } from "fs";
 
 program
     .name("forge-css-cli")
@@ -26,6 +27,9 @@ program
     .description("Build a css file with sass files prebuilt in the module.")
     .option("-c, --config <string>", "The location of the configuration file")
     .requiredOption("-o, --output <string>", "The location of the output file.")
-    .action((options: ForgeOption) => forgeCss(options.output, options.config));
+    .action((options: ForgeOption) => {
+        const css = forgeCss(options.config);
+        writeFileSync(options.output, css, {flag: "w+"});
+    });
 
 program.parse(process.argv);

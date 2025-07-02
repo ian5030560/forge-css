@@ -2,6 +2,7 @@
 @include map-properties((
     border-radius: (
         name: border-radius,
+        responsive: config("border-radius", "responsive"),
         css: border-radius,
         values: (
             "square": 0%,

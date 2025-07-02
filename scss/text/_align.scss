@@ -2,6 +2,7 @@
 @include map-properties((
     text-align: (
         name: text-align,
+        responsive: config("text", "align", "responsive"),
         css: text-align,
         values: (
             center: center, 

@@ -9,21 +9,25 @@ $-values: (
 @include map-properties((
     top: (
         name: top,
+        responsive: config("top", "responsive"),
         css: top,
         values: $-values
     ),
     left: (
         name: left,
+        responsive: config("left", "responsive"),
         css: left,
         values: $-values
     ),
     bottom: (
         name: bottom,
+        responsive: config("bottom", "responsive"),
         css: bottom,
         values: $-values
     ),
     right: (
         name: right,
+        responsive: config("right", "responsive"),
         css: right,
         values: $-values
     )

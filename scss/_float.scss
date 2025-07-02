@@ -2,6 +2,7 @@
 @include map-properties((
     float: (
         name: float,
+        responsive: config("float", "responsive"),
         css: float,
         values: (
             left: left, 

@@ -1,16 +1,17 @@
-@use "../util" as *;
+@use "util" as *;
 @include map-properties((
     font-size: (
         name: font-size,
+        responsive: config("font", "size", "responsive"),
         css: font-size,
         values: (
-            "smaller": 4px,
-            "small": 8px,
-            "normal": 16px,
-            "median": 24px,
-            "large": 32px,
-            "larger": 40px,
-            "xlarge": 48px
+            "smaller": config("font", "size", "smaller"),
+            "small": config("font", "size", "small"),
+            "normal": config("font", "size", "normal"),
+            "median": config("font", "size", "median"),
+            "large": config("font", "size", "large"),
+            "larger": config("font", "size", "larger"),
+            "xlarge": config("font", "size", "xlarge")
         )
     )
 ));

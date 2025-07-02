@@ -1,58 +1,77 @@
 @use "./util" as *;;
 
-$-values: (
-    "n1": -1px,
-    "0": 0px,
-    "1": 4px,
-    "2": 8px,
-    "3": 12px,
-    "4": 16px,
-    "5": 20px
-);
-$-binary-values: (
-    "n1": -1px -1px,
-    "0": 0px 0px,
-    "1": 4px 4px,
-    "2": 8px 8px,
-    "3": 12px 12px,
-    "4": 16px 16px,
-    "5": 20px 20px
-);
+@function get-padding-value($key){
+    @return (
+            "n1": config("padding", $key, "n1"),
+            "0": config("padding", $key, "0"),
+            "1": config("padding", $key, "1"),
+            "2": config("padding", $key, "2"),
+            "3": config("padding", $key, "3"),
+            "4": config("padding", $key, "4"),
+            "5": config("padding", $key, "5")
+        );
+}
+
+@function get-padding-binary-value($key){
+    @return(
+        "n1": config("padding", $key, "n1") config("padding", $key, "n1"),
+        "0": config("padding", $key, "0") config("padding", $key, "0"),
+        "1": config("padding", $key, "1") config("padding", $key, "1"),
+        "2": config("padding", $key, "2") config("padding", $key, "2"),
+        "3": config("padding", $key, "3") config("padding", $key, "3"),
+        "4": config("padding", $key, "4") config("padding", $key, "4"),
+        "5": config("padding", $key, "5") config("padding", $key, "5")
+    );
+}
 
 @include map-properties((
     padding: (
         name: "padding",
+        responsive: config("padding", "responsive"),
         css: padding,
-        values: $-values
+        values: (
+            "n1": config("padding", "n1"),
+            "0": config("padding", "0"),
+            "1": config("padding", "1"),
+            "2": config("padding", "2"),
+            "3": config("padding", "3"),
+            "4": config("padding", "4"),
+            "5": config("padding", "5")
+        )
     ),
     padding-x: (
         name: "padding-x",
+        responsive: config("padding", "x", "responsive"),
         css: padding-left padding-right,
-        values: $-binary-values
+        values: get-padding-binary-value("x")
     ),
     padding-y: (
         name: "padding-y",
+        responsive: config("padding", "y", "responsive"),
         css: padding-top padding-bottom,
-        values: $-binary-values
+        values: get-padding-binary-value("y")
     ),
     padding-top: (
         name: "padding-top",
         css: padding-top,
-        values: $-values,
+        values: get-padding-value("top")
     ),
     padding-bottom: (
         name: "padding-bottom",
+        responsive: config("padding", "bottom", "responsive"),
         css: padding-bottom,
-        values: $-values,
+        values: get-padding-value("bottom")
     ),
     padding-left: (
         name: "padding-left",
+        responsive: config("padding", "left", "responsive"),
         css: padding-left,
-        values: $-values,
+        values: ge
     ),
     padding-right: (
         name: "padding-right",
+        responsive: config("padding", "right", "responsive"),
         css: padding-right,
-        values: $-values,
+        values: get-padding-value("right")
     )
 ));

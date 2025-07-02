@@ -2,6 +2,7 @@
 @include map-properties((
     z-index: (
         name: z-index,
+        responsive: config("z-index", "responsive"),
         css: z-index,
         values: (
             "-2": -2,

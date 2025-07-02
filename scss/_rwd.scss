@@ -2,10 +2,10 @@
 @use "sass:list";
 
 $break-points: (
-    "xs": 576,
-    "sm": 576,
-    "md": 768,
-    "lg": 992,
-    "xlg": 1200,
-    "xxlg": 1400
+    "xs": config("break-points", "xs"),
+    "sm": config("break-points", "sm"),
+    "md": config("break-points", "md"),
+    "lg": config("break-points", "lg"),
+    "xlg": config("break-points", "xlg"),
+    "xxlg": config("break-points", "xxlg")
 );

@@ -4,11 +4,11 @@
         name: font-weight,
         css: font-weight,
         values: (
-            "lighter": 200,
-            "light": 300,
-            "normal": 400,
-            "bold": 500,
-            "bolder": 600
+            "lighter": config("font", "weight", "lighter"),
+            "light": config("font", "weight", "light"),
+            "normal": config("font", "weight", "normal"),
+            "bold": config("font", "weight", "bold"),
+            "bolder": config("font", "weight", "bolder")
         )
     )
 ));

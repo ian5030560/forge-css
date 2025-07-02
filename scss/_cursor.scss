@@ -2,6 +2,7 @@
 @include map-properties((
     cursor: (
         name: cursor,
+        responsive: config("cursor", "responsive"),
         css: cursor,
         values: (
             auto: auto, 

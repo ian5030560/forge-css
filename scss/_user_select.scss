@@ -2,6 +2,7 @@
 @include map-properties((
     user-select: (
         name: user-select,
+        responsive: config("user-select", "responsive"),
         css: -webkit-user-select user-select,
         values: (
             none: none none, 

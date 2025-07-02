@@ -1,18 +1,24 @@
 import { compile } from "sass";
 import { validateFilePath } from "./util";
-import importer from "./importer";
-import { writeFileSync } from "fs";
+import makeConfigFunction from "./config";
+import { join, resolve } from "path";
 
-const templates = "scss/index.scss";
-export default function forgeCss(output: string, config?: string) {
+export default function forgeCss(config?: string) {
     if (config) {
         validateFilePath(config);
     }
-    validateFilePath(output);
-
-    const result = compile(templates, {
-        importers: [importer(config)]
+    
+    // eslint-disable-next-line no-undef
+    const root = resolve(__dirname, "..");
+    const scssEntry = join(root, "scss", "index.scss");
+    
+    const result = compile(scssEntry, {
+        functions: {
+            ...makeConfigFunction(config)
+        },
+        loadPaths: [join(root, "scss")],
+        style: "compressed"
     });
 
-    writeFileSync(output, result.css, { flag: "w+" });
+    return result.css;
 }

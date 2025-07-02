@@ -1,58 +1,77 @@
 @use "./util" as *;;
 
-$-values: (
-    "n1": -1px,
-    "0": 0px,
-    "1": 4px,
-    "2": 8px,
-    "3": 12px,
-    "4": 16px,
-    "5": 20px
-);
-$-binary-values: (
-    "n1": -1px -1px,
-    "0": 0px 0px,
-    "1": 4px 4px,
-    "2": 8px 8px,
-    "3": 12px 12px,
-    "4": 16px 16px,
-    "5": 20px 20px
-);
+@function get-margin-value($key){
+    @return (
+            "n1": config("margin", $key, "n1"),
+            "0": config("margin", $key, "0"),
+            "1": config("margin", $key, "1"),
+            "2": config("margin", $key, "2"),
+            "3": config("margin", $key, "3"),
+            "4": config("margin", $key, "4"),
+            "5": config("margin", $key, "5")
+        );
+}
+
+@function get-margin-binary-value($key){
+    @return(
+        "n1": config("margin", $key, "n1") config("margin", $key, "n1"),
+        "0": config("margin", $key, "0") config("margin", $key, "0"),
+        "1": config("margin", $key, "1") config("margin", $key, "1"),
+        "2": config("margin", $key, "2") config("margin", $key, "2"),
+        "3": config("margin", $key, "3") config("margin", $key, "3"),
+        "4": config("margin", $key, "4") config("margin", $key, "4"),
+        "5": config("margin", $key, "5") config("margin", $key, "5")
+    );
+}
 
 @include map-properties((
     margin: (
         name: "margin",
+        responsive: config("margin", "responsive"),
         css: margin,
-        values: $-values
+        values: (
+            "n1": config("margin", "n1"),
+            "0": config("margin", "0"),
+            "1": config("margin", "1"),
+            "2": config("margin", "2"),
+            "3": config("margin", "3"),
+            "4": config("margin", "4"),
+            "5": config("margin", "5")
+        )
     ),
     margin-x: (
         name: "margin-x",
+        responsive: config("margin", "x", "responsive"),
         css: margin-left margin-right,
-        values: $-binary-values
+        values: get-margin-binary-value("x")
     ),
     margin-y: (
         name: "margin-y",
+        responsive: config("margin", "y", "responsive"),
         css: margin-top margin-bottom,
-        values: $-binary-values
+        values: get-margin-binary-value("y")
     ),
     margin-top: (
         name: "margin-top",
         css: margin-top,
-        values: $-values,
+        values: get-margin-value("top")
     ),
     margin-bottom: (
         name: "margin-bottom",
+        responsive: config("margin", "bottom", "responsive"),
         css: margin-bottom,
-        values: $-values,
+        values: get-margin-value("bottom")
     ),
     margin-left: (
         name: "margin-left",
+        responsive: config("margin", "left", "responsive"),
         css: margin-left,
-        values: $-values,
+        values: ge
     ),
     margin-right: (
         name: "margin-right",
+        responsive: config("margin", "right", "responsive"),
         css: margin-right,
-        values: $-values,
+        values: get-margin-value("right")
     )
 ));

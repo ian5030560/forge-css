@@ -13,5 +13,5 @@
         "color-function-alias-notation": null
     },
 
-    "ignoreFiles": ["**.*.css"]
+    "ignoreFiles": ["*.css"]
 }

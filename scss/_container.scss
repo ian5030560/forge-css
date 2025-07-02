@@ -26,59 +26,65 @@
 }
 
 $-container: "container";
+$-xs: config("container", "xs");
+$-sm: config("container", "sm");
+$-md: config("container", "md");
+$-lg: config("container", "lg");
+$-xlg: config("container", "xlg");
+$-xxlg: config("container", "xxlg");
 
 @include -make-containers((
     #{$-container}: (
-        xs: 100%,
-        sm: 540px,
-        md: 720px,
-        lg: 960px,
-        xlg: 1140px,
-        xxlg: 1320px
+        xs: $-xs,
+        sm: $-sm,
+        md: $-md,
+        lg: $-lg,
+        xlg: $-xlg,
+        xxlg: $-xxlg
     ),
 
     #{$-container}-sm: (
-        xs: 100%,
-        sm: 540px,
-        md: 720px,
-        lg: 960px,
-        xlg: 1140px,
-        xxlg: 1320px
+        xs: $-xs,
+        sm: $-sm,
+        md: $-md,
+        lg: $-lg,
+        xlg: $-xlg,
+        xxlg: $-xxlg
     ),
 
     #{$-container}-md: (
-        xs: 100%,
-        sm: 100%,
-        md: 720px,
-        lg: 960px,
-        xlg: 1140px,
-        xxlg: 1320px
+        xs: $-xs,
+        sm: $-xs,
+        md: $-md,
+        lg: $-lg,
+        xlg: $-xlg,
+        xxlg: $-xxlg
     ),
 
     #{$-container}-lg: (
-        xs: 100%,
-        sm: 100%,
-        md: 100%,
-        lg: 960px,
-        xlg: 1140px,
-        xxlg: 1320px
+        xs: $-xs,
+        sm: $-xs,
+        md: $-xs,
+        lg: $-lg,
+        xlg: $-xlg,
+        xxlg: $-xxlg
     ),
 
     #{$-container}-xlg: (
-        xs: 100%,
-        sm: 100%,
-        md: 100%,
-        lg: 100%,
-        xlg: 1140px,
-        xxlg: 1320px
+        xs: $-xs,
+        sm: $-xs,
+        md: $-xs,
+        lg: $-xs,
+        xlg: $-xlg,
+        xxlg: $-xxlg
     ),
 
     #{$-container}-xxlg: (
-        xs: 100%,
-        sm: 100%,
-        md: 100%,
-        lg: 100%,
-        xlg: 100%,
-        xxlg: 1320px
+        xs: $-xs,
+        sm: $-xs,
+        md: $-xs,
+        lg: $-xs,
+        xlg: $-xs,
+        xxlg: $-xxlg
     ),
 ));

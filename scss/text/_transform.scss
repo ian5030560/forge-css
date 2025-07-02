@@ -2,6 +2,7 @@
 @include map-properties((
     text-transform: (
         name: text-transform,
+        responsive: config("text", "transform", "responsive"),
         css: text-transform,
         values: (
             capitalize: capitalize, 

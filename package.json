@@ -5,8 +5,10 @@
   "scripts": {
     "build": "rollup --config rollup-config.js",
     "test": "jest --config=jest.config.js",
+    "test:watch": "jest --config=jest.config.js --watch",
+    "lint": "eslint",
     "style-lint": "npx stylelint sass/**/*",
-    "dev": "ts-node --project tsconfig.json src/cli.ts forge -c test -o 123"
+    "dev": "ts-node --project tsconfig.json src/cli.ts forge -o output.css"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +33,7 @@
     "typescript-eslint": "^8.35.0"
   },
   "dependencies": {
+    "commander": "^14.0.0",
     "sass": "^1.89.2"
   },
   "overrides": {

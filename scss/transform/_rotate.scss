@@ -2,6 +2,7 @@
 @include map-properties((
     rotate: (
         name: rotate,
+        responsive: config("transform", "rotate", "responsive"),
         css: transform,
         values: (
             "45": rotate(45deg), 

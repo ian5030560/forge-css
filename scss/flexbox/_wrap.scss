@@ -2,6 +2,7 @@
 @include map-properties((
     flex-wrap: (
         name: flex-wrap,
+        responsive: config("flex", "wrap", "responsive"),
         css: flex-wrap,
         values: (
             wrap: wrap, 
