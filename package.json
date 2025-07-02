@@ -3,22 +3,37 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --p ./tsconfig.json && vite build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --config rollup-config.js",
+    "test": "jest --config=jest.config.js",
     "style-lint": "npx stylelint sass/**/*",
-    "build-sass": "sass scss:dir"
+    "dev": "ts-node --project tsconfig.json src/cli.ts forge -c test -o 123"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "sass": "^1.89.2",
+    "@eslint/js": "^9.30.0",
+    "@rollup/plugin-eslint": "^9.0.5",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.7",
+    "eslint": "^9.30.0",
+    "globals": "^16.2.0",
+    "jest": "^30.0.3",
+    "rollup": "^4.44.1",
     "stylelint": "^16.21.0",
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-standard-scss": "^15.0.1",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
-    "vite": "^7.0.0",
-    "vite-plugin-dts": "^4.5.4"
+    "typescript-eslint": "^8.35.0"
+  },
+  "dependencies": {
+    "sass": "^1.89.2"
+  },
+  "overrides": {
+    "eslint": "^9.30.0"
   }
 }

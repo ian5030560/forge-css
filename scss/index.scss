@@ -4,7 +4,6 @@
 @use "./direction";
 @use "./display";
 @use "./float";
-@use "./grid";
 @use "./height";
 @use "./line_height";
 @use "./margin";
@@ -22,3 +21,5 @@
 @use "./position";
 @use "./text";
 @use "./transform";
+@use "./gap";
+@use "./cursor";

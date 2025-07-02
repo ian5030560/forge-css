@@ -7,7 +7,10 @@
     "rules": {
         "property-no-vendor-prefix": null,
         "declaration-property-value-keyword-no-deprecated": null,
-        "length-zero-no-unit": null
+        "length-zero-no-unit": null,
+        "color-function-notation": null,
+        "alpha-value-notation": null,
+        "color-function-alias-notation": null
     },
 
     "ignoreFiles": ["**.*.css"]

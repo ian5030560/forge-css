@@ -1,0 +1,310 @@
+{
+    "break-points": {
+        "xs": 576,
+        "sm": 576,
+        "md": 768,
+        "lg": 992,
+        "xlg": 1200,
+        "xxlg": 1400
+    },
+    "display": {
+        "responsive": true
+    },
+    "z-index": {
+        "responsive": false
+    },
+    "aspect-ratio": {
+        "responsive": false
+    },
+    "border-radius": {
+        "responsive": false
+    },
+    "flex": {
+        "direction": {
+            "responsive": true
+        },
+        "wrap": {
+            "responsive": false
+        },
+        "grow": {
+            "responsive": false
+        },
+        "shrink": {
+            "responsive": false
+        }
+    },
+    "justify-content": {
+        "responsive": true
+    },
+    "align-items": {
+        "responsive": true
+    },
+    "align-self": {
+        "responsive": true
+    },
+    "position": {
+        "responsive": false
+    },
+    "top": {
+        "responsive": true
+    },
+    "left": {
+        "responsive": true
+    },
+    "right": {
+        "responsive": true
+    },
+    "bottom": {
+        "responsive": true
+    },
+    "white-space": {
+        "responsive": false
+    },
+    "vertical-align": {
+        "responsive": false
+    },
+    "text": {
+        "align": {
+            "responsive": true
+        },
+        "decoration": {
+            "responsive": false
+        },
+        "transform": {
+            "responsive": false
+        },
+        "wrap": {
+            "responsive": false
+        },
+        "truncate": {
+            "responsive": false
+        },
+        "break": {
+            "responsive": false
+        }
+    },
+    "font": {
+        "size": {
+            "responsive": true,
+            "smaller": "4px",
+            "small": "8px",
+            "normal": "16px",
+            "median": "24px",
+            "large": "32px",
+            "larger": "40px",
+            "xlarge": "48px"
+        },
+        "weight": {
+            "responsive": false,
+            "lighter": 200,
+            "light": 300,
+            "normal": 400,
+            "bold": 500,
+            "bolder": 600
+        },
+        "italic": {
+            "responsive": false
+        },
+        "family": {
+            "responsive": false
+        }
+    },
+    "gap": {
+        "responsive": true,
+        "0": "0px",
+        "1": "8px",
+        "2": "16px",
+        "3": "24px",
+        "4": "32px",
+        "5": "40px",
+        "row": {
+            "responsive": true,
+            "0": "0px",
+            "1": "8px",
+            "2": "16px",
+            "3": "24px",
+            "4": "32px",
+            "5": "40px"
+        },
+        "column": {
+            "responsive": true,
+            "0": "0px",
+            "1": "8px",
+            "2": "16px",
+            "3": "24px",
+            "4": "32px",
+            "5": "40px"
+        }
+    },
+    "height": {
+        "responsive": true,
+        "min": {
+            "responsive": true
+        },
+        "max": {
+            "responsive": true
+        }
+    },
+    "line-height": {
+        "responsive": false,
+        "1": 1,
+        "small": 1.25,
+        "normal": 1.5,
+        "large": 2
+    },
+    "margin": {
+        "responsive": true,
+        "n1": "-1px",
+        "0": "0px",
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "5": "20px",
+        "top": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        },
+        "left": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        },
+        "right": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        },
+        "bottom": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        }
+    },
+    "padding": {
+        "responsive": true,
+        "n1": "-1px",
+        "0": "0px",
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "5": "20px",
+        "top": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        },
+        "left": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        },
+        "right": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        },
+        "bottom": {
+            "responsive": true,
+            "n1": "-1px",
+            "0": "0px",
+            "1": "4px",
+            "2": "8px",
+            "3": "12px",
+            "4": "16px",
+            "5": "20px"
+        }
+    },
+    "width": {
+        "responsive": true,
+        "min": {
+            "responsive": true
+        },
+        "max": {
+            "responsive": true
+        }
+    },
+    "transform": {
+        "rotate": {
+            "responsive": false
+        },
+        "translate": {
+            "responsive": false
+        }
+    },
+    "direction": {
+        "responsive": false
+    },
+    "float": {
+        "responsive": false
+    },
+    "object-fit": {
+        "responsive": false
+    },
+    "opacity": {
+        "responsive": false
+    },
+    "overflow": {
+        "responsive": false,
+        "x": {
+            "responsive": false
+        },
+        "y": {
+            "responsive": false
+        }
+    },
+    "user-select": {
+        "responsive": false
+    },
+    "visibility": {
+        "responsive": false
+    },
+    "cursor": {
+        "responsive": false
+    },
+    "container": {
+        "xs": "100%",
+        "sm": "540px",
+        "md": "720px",
+        "lg": "960px",
+        "xlg": "1140px",
+        "xxlg": "1320px"
+    }
+}

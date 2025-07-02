@@ -1,0 +1,20 @@
+@use "./util" as *;
+@include map-properties((
+    cursor: (
+        name: cursor,
+        css: cursor,
+        values: (
+            auto: auto, 
+            default: default, 
+            pointer: pointer,
+            text: text,
+            move: move,
+            grab: grab,
+            grabbing: grabbing,
+            col-resize: col-resize,
+            row-resize: row-resize,
+            nesw-resize: nesw-resize,
+            nwse-resize: nwse-resize            
+        )
+    )
+))
