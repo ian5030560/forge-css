@@ -16,8 +16,10 @@
     "aspect-ratio": {
         "responsive": false
     },
-    "border-radius": {
-        "responsive": false
+    "border": {
+        "radius": {
+            "responsive": false
+        }
     },
     "flex": {
         "direction": {

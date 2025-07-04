@@ -1,7 +1,8 @@
 import { CustomFunction, sassFalse, SassMap, sassNull, SassNumber, SassString, sassTrue, Value } from "sass"
 import { OrderedMap } from "immutable";
 import defaultConfig from "../default/forgecss.config.json";
-import { readFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
+import { resolve } from "path";
 
 type ConfigOption = { [key: string]: any };
 
@@ -68,13 +69,17 @@ function toSass(obj: any) {
  * make the custom function to access values in the config file
  * 
  * @example
- * in scss file:
+ * in scss:
  * $value = config("gap", "responsive"); // get 'responsive' property of 'gap' property in the config file.
  */
 export default function makeConfigFunction(config?: string): Record<string, CustomFunction<"sync">> {
+    if (config && !existsSync(resolve(config))) {
+        throw new Error(`${config} is not found.`);
+    }
+    
     const options = defaultConfig as ConfigOption;
     if (config) {
-        const partial: Partial<ConfigOption> = JSON.parse(readFileSync(config, "utf-8"));
+        const partial: Partial<ConfigOption> = JSON.parse(readFileSync(new URL(config, import.meta.url), "utf-8"));
         applyDiff(options, partial);
     }
 

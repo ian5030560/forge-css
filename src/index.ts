@@ -1,15 +1,12 @@
 import { compile } from "sass";
-import { validateFilePath } from "./util";
 import makeConfigFunction from "./config";
-import { join, resolve } from "path";
+import { dirname, join, resolve } from "path";
+import { fileURLToPath } from "url";
+
+const __dir = dirname(fileURLToPath(import.meta.url));
 
 export default function forgeCss(config?: string) {
-    if (config) {
-        validateFilePath(config);
-    }
-    
-    // eslint-disable-next-line no-undef
-    const root = resolve(__dirname, "..");
+    const root = resolve(__dir, "..");
     const scssEntry = join(root, "scss", "index.scss");
     
     const result = compile(scssEntry, {

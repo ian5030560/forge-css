@@ -1,14 +1,23 @@
 {
   "name": "forge-css",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
+  "main": "dist/index.mjs",
+  "type": "module",
+  "bin": {
+    "forge": "dist/cli.mjs"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "rollup --config rollup-config.js",
+    "build": "rollup --config rollup.config.js",
     "test": "jest --config=jest.config.js",
     "test:watch": "jest --config=jest.config.js --watch",
     "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "style-lint": "npx stylelint sass/**/*",
-    "dev": "ts-node --project tsconfig.json src/cli.ts forge -o output.css"
+    "dev": "tsx src/cli.ts -o output.css",
+    "prod": "npm link && forge -o output.css"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +25,10 @@
   "description": "",
   "devDependencies": {
     "@eslint/js": "^9.30.0",
+    "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-eslint": "^9.0.5",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.4",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.7",
@@ -28,7 +40,8 @@
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-standard-scss": "^15.0.1",
     "ts-jest": "^29.4.0",
-    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.0"
   },

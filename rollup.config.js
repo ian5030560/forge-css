@@ -1,16 +1,28 @@
 import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
 import eslint from '@rollup/plugin-eslint';
+import json from '@rollup/plugin-json';
+import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default defineConfig({
-    plugins: [
-        typescript({ tsconfig: "./tsconfig.json" }),
-        eslint({ baseConfig: "./eslint.config.mjs" }),
-    ],
-    input: "src/index.ts",
+    input: {
+        "index": "src/index.ts",
+        "cli": "src/cli.ts"
+    },
     output: {
-        dir: "dir",
-        file: "index.js",
-        format: "cjs"
-    }
+        dir: "dist",
+        format: "es",
+        entryFileNames: "[name].mjs",
+        chunkFileNames: "[name]-[hash].mjs",
+        sourcemap: true,
+    },
+    external: ["sass", "immutable"],
+    plugins: [
+        nodeResolve(),
+        commonjs({ignoreDynamicRequires: true}),
+        typescript({ tsconfig: "./tsconfig.json" }),
+        eslint(),
+        json(),
+    ],
 });

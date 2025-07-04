@@ -3,6 +3,7 @@
     "compilerOptions": {
         "noUnusedLocals": false,
         "noUnusedParameters": false,
+        "rootDir": "test"
     },
     "include": [
         "test/**/*"

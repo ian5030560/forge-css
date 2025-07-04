@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { program } from "commander";
 import process from "process";
-import forgeCss from ".";
 import { writeFileSync } from "fs";
+import forgeCss from ".";
 
 program
     .name("forge-css-cli")
@@ -23,7 +23,6 @@ type ForgeOption = {
  * -o, --output: The location of the output file.
  */
 program
-    .command("forge")
     .description("Build a css file with sass files prebuilt in the module.")
     .option("-c, --config <string>", "The location of the configuration file")
     .requiredOption("-o, --output <string>", "The location of the output file.")
