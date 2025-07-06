@@ -2,7 +2,7 @@
 @include map-properties((
     vertical-align: (
         name: vertical-align,
-        responsive: config("vertical-align", "responsive"),
+        responsive: get-or-others(config("vertical-align", "responsive"), false),
         css: vertical-align,
         values: (
             baseline: baseline, 

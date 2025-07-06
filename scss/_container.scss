@@ -1,5 +1,6 @@
 @use "./rwd" as rwd;
 @use "sass:map";
+@use "./util" as *;
 
 @mixin -make-container-mixin($selector, $widths){
     @each $key, $point in rwd.$break-points{
@@ -26,12 +27,12 @@
 }
 
 $-container: "container";
-$-xs: config("container", "xs");
-$-sm: config("container", "sm");
-$-md: config("container", "md");
-$-lg: config("container", "lg");
-$-xlg: config("container", "xlg");
-$-xxlg: config("container", "xxlg");
+$-xs: get-or-others(config("container", "xs"), 100%);
+$-sm: get-or-others(config("container", "sm"), 540px);
+$-md: get-or-others(config("container", "md"), 720px);
+$-lg: get-or-others(config("container", "lg"), 960px);
+$-xlg: get-or-others(config("container", "xlg"), 1140px);
+$-xxlg: get-or-others(config("container", "xxlg"), 1320px);
 
 @include -make-containers((
     #{$-container}: (

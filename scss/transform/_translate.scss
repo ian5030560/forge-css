@@ -2,7 +2,7 @@
 @include map-properties((
     translate: (
         name: translate,
-        responsive: config("transform", "translate", "responsive"),
+        responsive: get-or-others(config("transform", "translate", "responsive"), false),
         css: transform,
         values: (
             "n50": translate(-50%, -50%), 
@@ -13,7 +13,7 @@
     ),
     translate-x: (
         name: translate-x,
-        responsive: config("transform", "translate", "x", "responsive"),
+        responsive: get-or-others(config("transform", "translate", "x", "responsive"), false),
         css: transform,
         values: (
             "n50": translateX(-50%), 
@@ -24,7 +24,7 @@
     ),
     translate-y: (
         name: translate-y,
-        responsive: config("transform", "translate", "y", "responsive"),
+        responsive: get-or-others(config("transform", "translate", "y", "responsive"), false),
         css: transform,
         values: (
             "n50": translateY(-50%), 

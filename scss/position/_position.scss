@@ -2,7 +2,7 @@
 @include map-properties((
     position: (
         name: position,
-        responsive: config("position", "responsive"),
+        responsive: get-or-others(config("position", "responsive"), false),
         css: position,
         values: (
             static: static, 

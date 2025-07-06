@@ -2,7 +2,7 @@
 @include map-properties((
     white-space: (
         name: white-space,
-        responsive: config("white-space", "responsive"),
+        responsive: get-or-others(config("white-space", "responsive"), false),
         css: white-space,
         values: (
             pre: pre, 

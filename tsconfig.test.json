@@ -1,11 +1,7 @@
 {
     "extends": "./tsconfig.base.json",
-    "compilerOptions": {
-        "noUnusedLocals": false,
-        "noUnusedParameters": false,
-        "rootDir": "test"
-    },
     "include": [
-        "test/**/*"
-    ],
+        "test/**/*",
+        "src/**/*"
+    ]
 }

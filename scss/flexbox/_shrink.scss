@@ -2,7 +2,7 @@
 @include map-properties((
     flex-shrink: (
         name: flex-shrink,
-        responsive: config("flex","shrink", "responsive"),
+        responsive: get-or-others(config("flex", "shrink", "responsive"), false),
         css: flex-shrink,
         values: (
             "0": 0,

@@ -11,19 +11,19 @@ $-values: (
 @include map-properties((
     overflow: (
         name: overflow,
-        responsive: config("overflow", "responsive"),
+        responsive: get-or-others(config("overflow", "responsive"), false),
         css: overflow,
         values: $-values
     ),
     overflow-x: (
         name: overflow-x,
-        responsive: config("overflow", "x", "responsive"),
+        responsive: get-or-others(config("overflow", "x", "responsive"), false),
         css: overflow-x,
         values: $-values
     ),
     overflow-y: (
         name: overflow-y,
-        responsive: config("overflow", "y", "responsive"),
+        responsive: get-or-others(config("overflow", "y", "responsive"), false),
         css: overflow-y,
         values: $-values
     )

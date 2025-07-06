@@ -12,21 +12,21 @@ $-values: (
 @include map-properties((
     width: (
         name: width,
-        responsive: config("width", "responsive"),
+        responsive: get-or-others(config("width", "responsive"), true),
         css: width,
         values: $-values
     ),
 
     min-width: (
         name: min-width,
-        responsive: config("width", "min", "responsive"),
+        responsive: get-or-others(config("width", "min", "responsive"), true),
         css: min-width,
         values: $-values
     ),
 
     max-width: (
         name: max-width,
-        responsive: config("width", "max", "responsive"),
+        responsive: get-or-others(config("width", "max", "responsive"), true),
         css: max-width,
         values: $-values
     )

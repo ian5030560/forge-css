@@ -1,0 +1,93 @@
+@use "./util" as *;;
+@use "sass:list";
+@use "sass:map";
+@use "./spacer" as *;
+
+@function get-margins($key1: '', $key2: ''){
+    $values: ();
+
+    @for $i from 0 to list.length($spacer){
+        $values: map.set($values, #{$i}, 
+        if-else($key1 == '',
+        get-or-others(
+            config("margin", #{$i}),
+            config("spacing", #{$i}),
+            list.nth($spacer, $i + 1)
+        ),
+        get-or-others(
+            config("margin", $key1, #{$i}),
+            config("spacing", $key2, #{$i}),
+            config("spacing", #{$i}),
+            list.nth($spacer, $i + 1)
+        )));
+    }
+
+    @return $values;
+}
+
+@function get-margins-binary($key1: '', $key2: ''){
+    $values: ();
+
+    @for $i from 0 to list.length($spacer){
+        $value: if-else($key1 == '',
+        get-or-others(
+            config("margin", #{$i}),
+            config("spacing", #{$i}),
+            list.nth($spacer, $i + 1)
+        ),
+        get-or-others(
+            config("margin", $key1, #{$i}),
+            config("spacing", $key2, #{$i}),
+            config("spacing", #{$i}),
+            list.nth($spacer, $i + 1)
+        ));
+        $values: map.set($values, #{$i}, $value $value);
+    }
+
+    @return $values;
+}
+
+@include map-properties((
+    margin: (
+        name: "margin",
+        responsive: get-or-others(config("margin", "responsive"), true),
+        css: margin,
+        values: get-margins()
+    ),
+    margin-x: (
+        name: "margin-x",
+        responsive: get-or-others(config("margin", "x", "responsive"), true),
+        css: margin-left margin-right,
+        values: get-margins-binary("x", "x")
+    ),
+    margin-y: (
+        name: "margin-y",
+        responsive: get-or-others(config("margin", "y", "responsive"), true),
+        css: margin-top margin-bottom,
+        values: get-margins-binary("y", "y")
+    ),
+    margin-top: (
+        name: "margin-top",
+        responsive: get-or-others(config("margin", "top", "responsive"), true),
+        css: margin-top,
+        values: get-margins("top", "y")
+    ),
+    margin-bottom: (
+        name: "margin-bottom",
+        responsive: get-or-others(config("margin", "bottom", "responsive"), true),
+        css: margin-bottom,
+        values: get-margins("bottom", "y")
+    ),
+    margin-left: (
+        name: "margin-left",
+        responsive: get-or-others(config("margin", "left", "responsive"), true),
+        css: margin-left,
+        values: get-margins("left", "x")
+    ),
+    margin-right: (
+        name: "margin-right",
+        responsive: get-or-others(config("margin", "right", "responsive"), true),
+        css: margin-right,
+        values: get-margins("right", "x")
+    )
+));

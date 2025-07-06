@@ -1,37 +1,16 @@
 import { CustomFunction, sassFalse, SassMap, sassNull, SassNumber, SassString, sassTrue, Value } from "sass"
 import { OrderedMap } from "immutable";
-import defaultConfig from "../default/forgecss.config.json";
 import { existsSync, readFileSync } from "fs";
 import { resolve } from "path";
 
 type ConfigOption = { [key: string]: any };
 
-export function applyDiff(options: ConfigOption, partial: Partial<ConfigOption>) {
-    for (const key in partial) {
-        const oldValue = options[key];
-        const newValue = partial[key];
-
-        if (typeof oldValue !== typeof newValue) {
-            throw new Error(`${typeof newValue} should be ${typeof oldValue}.`);
-        }
-
-        if (typeof oldValue === "object") {
-            applyDiff(oldValue, newValue);
-        }
-        else {
-            options[key] = newValue;
-        }
-    }
-}
-
 export function seekProperty(options: ConfigOption, key: string, ...subKeys: string[]) {
     return subKeys.reduce((prev, curr) => {
-        if (typeof prev !== "object" || prev === null) {
-            throw new Error(`Cannot seek property "${curr}" in a non-object value: ${JSON.stringify(prev)}.`);
+        if(prev === undefined || prev === null){
+            return prev;
         }
-        if (!Object.keys(prev).includes(curr)) {
-            throw new Error(`Can't seek property ${curr} in ${JSON.stringify(prev)}.`);
-        }
+
         return prev[curr];
     }, options[key]);
 }
@@ -45,7 +24,7 @@ function toSassMap(obj: object): SassMap {
 }
 
 function toSass(obj: any) {
-    if (obj === null) {
+    if (obj === null || obj === undefined) {
         return sassNull;
     }
     else {
@@ -57,9 +36,12 @@ function toSass(obj: any) {
             case "boolean":
                 return obj ? sassTrue : sassFalse;
             case "object":
+                if(Array.isArray(obj)){
+                    throw new Error("Array is not supported.");
+                }
                 return toSassMap(obj);
             default:
-                throw new Error("Unknown error in config function.");
+                throw new Error(`${typeof obj} is not supported`);
         }
     }
 }
@@ -76,11 +58,10 @@ export default function makeConfigFunction(config?: string): Record<string, Cust
     if (config && !existsSync(resolve(config))) {
         throw new Error(`${config} is not found.`);
     }
-    
-    const options = defaultConfig as ConfigOption;
+
+    let options = {} as ConfigOption;
     if (config) {
-        const partial: Partial<ConfigOption> = JSON.parse(readFileSync(new URL(config, import.meta.url), "utf-8"));
-        applyDiff(options, partial);
+        options = JSON.parse(readFileSync(resolve(config), "utf-8"));
     }
 
     return {

@@ -1,11 +1,26 @@
+/* stylelint-disable scss/at-if-no-null */
 @use "sass:meta";
 @use "sass:list";
 
+@function -get-or-others($main, $others...){
+    @if $main != null{
+        @return $main;
+    } @else{
+        @each $other in $others{
+            @if $other != null {
+                @return $other;
+            }
+        }
+
+        @error "One of others should be not null.";
+    }
+}
+
 $break-points: (
-    "xs": config("break-points", "xs"),
-    "sm": config("break-points", "sm"),
-    "md": config("break-points", "md"),
-    "lg": config("break-points", "lg"),
-    "xlg": config("break-points", "xlg"),
-    "xxlg": config("break-points", "xxlg")
+    "xs": -get-or-others(config("break-points", "xs"), 576px),
+    "sm": -get-or-others(config("break-points", "sm"), 576px),
+    "md": -get-or-others(config("break-points", "md"), 768px),
+    "lg": -get-or-others(config("break-points", "lg"), 992px),
+    "xlg": -get-or-others(config("break-points", "xlg"), 1200px),
+    "xxlg": -get-or-others(config("break-points", "xxlg"), 1400px)
 );

@@ -2,7 +2,7 @@
 @include map-properties((
     opacity: (
         name: opacity,
-        responsive: config("opacity", "responsive"),
+        responsive: get-or-others(config("opacity", "responsive"), false),
         css: opacity,
         values: (
             "0": 0%, 

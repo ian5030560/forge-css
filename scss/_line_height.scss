@@ -2,7 +2,7 @@
 @include map-properties((
     line-height: (
         name: line-height,
-        responsive: config("line-height", "responsive"),
+        responsive: get-or-others(config("line-height", "responsive"), false),
         css: line-height,
         values: (
             "1": 1,

@@ -2,7 +2,7 @@
 @include map-properties((
     cursor: (
         name: cursor,
-        responsive: config("cursor", "responsive"),
+        responsive: get-or-others(config("cursor", "responsive"), false),
         css: cursor,
         values: (
             auto: auto, 

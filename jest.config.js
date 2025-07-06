@@ -1,16 +1,24 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-const { createDefaultPreset } = require("ts-jest");
+import { createDefaultEsmPreset } from "ts-jest";
 
-const tsJestTransformCfg = createDefaultPreset({
+const tsJestCfg = createDefaultEsmPreset({
   tsconfig: "tsconfig.test.json",
-}).transform;
+  // diagnostics: {
+  //   ignoreCodes: [1343]
+  // },
+  // astTransformers: {
+  //   before: [
+  //     {
+  //       path: 'ts-jest-mock-import-meta',
+  //       // options: { metaObjectReplacement: { url: 'https://www.url.com' } }
+  //     }
+  //   ]
+  // }
+});
 
 /** @type {import("jest").Config} **/
-module.exports = {
+export default {
+  ...tsJestCfg,
   testEnvironment: "node",
   rootDir: "test",
-  testRegex: ".\\.test\\.ts$",
-  transform: {
-    ...tsJestTransformCfg,
-  },
+  testRegex: ".\\.test\\.ts$"
 };

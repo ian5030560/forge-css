@@ -2,12 +2,14 @@
 @include map-properties((
     vstack: (
         name: vstack,
+        responsive: get-or-others(config("stack", "vertical", "responsive"), true),
         css: display flex-direction,
         values: only-default(flex column),
     ),
 
     hstack: (
         name: hstack,
+        responsive: get-or-others(config("stack", "horizontal", "responsive"), true),
         css: display flex-direction,
         values: only-default(flex row),
     )

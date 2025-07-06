@@ -1,0 +1,93 @@
+@use "./util" as *;;
+@use "sass:list";
+@use "sass:map";
+@use "./spacer" as *;
+
+@function get-paddings($key1: '', $key2: ''){
+    $values: ();
+
+    @for $i from 0 to list.length($spacer){
+        $values: map.set($values, #{$i}, 
+        if-else(key1 == '',
+        get-or-others(
+            config("padding", #{$i}),
+            config("spacing", #{$i}),
+            list.nth($spacer, $i + 1)
+        ),
+        get-or-others(
+            config("padding", $key1, #{$i}),
+            config("spacing", $key2, #{$i}),
+            config("spacing", #{$i}),
+            list.nth($spacer, $i + 1)
+        )));
+    }
+
+    @return $values;
+}
+
+@function get-paddings-binary($key1: '', $key2: ''){
+    $values: ();
+
+    @for $i from 0 to list.length($spacer){
+        $value: if-else($key1 == '',
+        get-or-others(
+            config("padding", #{$i}),
+            config("spacing", #{$i}),
+            list.nth($spacer, $i + 1)
+        ),
+        get-or-others(
+            config("padding", $key1, #{$i}),
+            config("spacing", $key2, #{$i}),
+            config("spacing", #{$i}),
+            list.nth($spacer, $i + 1)
+        ));
+        $values: map.set($values, #{$i}, $value $value);
+    }
+
+    @return $values;
+}
+
+@include map-properties((
+    padding: (
+        name: "padding",
+        responsive: get-or-others(config("padding", "responsive"), true),
+        css: padding,
+        values: get-paddings()
+    ),
+    padding-x: (
+        name: "padding-x",
+        responsive: get-or-others(config("padding", "x", "responsive"), true),
+        css: padding-left padding-right,
+        values: get-paddings-binary("x", "x")
+    ),
+    padding-y: (
+        name: "padding-y",
+        responsive: get-or-others(config("padding", "y", "responsive"), true),
+        css: padding-top padding-bottom,
+        values: get-paddings-binary("y", "y")
+    ),
+    padding-top: (
+        name: "padding-top",
+        responsive: get-or-others(config("padding", "top", "responsive"), true),
+        css: padding-top,
+        values: get-paddings("top", "y")
+    ),
+    padding-bottom: (
+        name: "padding-bottom",
+        responsive: get-or-others(config("padding", "bottom", "responsive"), true),
+        css: padding-bottom,
+        values: get-paddings("bottom", "y")
+    ),
+    padding-left: (
+        name: "padding-left",
+        responsive: get-or-others(config("padding", "left", "responsive"), true),
+        css: padding-left,
+        values: get-paddings("left", "x")
+    ),
+    padding-right: (
+        name: "padding-right",
+        responsive: get-or-others(config("padding", "right", "responsive"), true),
+        css: padding-right,
+        values: get-paddings("right", "x")
+    )
+));

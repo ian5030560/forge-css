@@ -1,10 +1,19 @@
+/* stylelint-disable scss/at-if-no-null */
 @use "./rwd" as rwd;
 @use "sass:meta";
 @use "sass:map";
 @use "sass:list";
 @use "sass:string";
 
-@mixin -handle-css-list($selector, $css, $values){
+@function -is-important($value, $important){
+    @if $important {
+        @return $value !important;
+    } @else {
+        @return $value;
+    }
+}
+
+@mixin -handle-css-list($selector, $css, $values, $important){
     $length: list.length($css);
 
     @each $name, $value-list in $values{
@@ -19,13 +28,13 @@
         @if string.length($name) == 0{
             .#{$selector}{
                 @for $i from 1 through $length{
-                    #{list.nth($css, $i)}: #{list.nth($value-list, $i)};
+                    #{list.nth($css, $i)}: -is-important(list.nth($value-list, $i), $important);
                 }
             }
         } @else{
             .#{$selector}-#{$name}{
                 @for $i from 1 through $length{
-                    #{list.nth($css, $i)}: #{list.nth($value-list, $i)};
+                    #{list.nth($css, $i)}: -is-important(list.nth($value-list, $i), $important);
                 }
             }
         }
@@ -36,7 +45,7 @@
     @return list.index($list, $object) != null;
 }
 
-@mixin -handle-css-string($selector, $css, $values){
+@mixin -handle-css-string($selector, $css, $values, $important){
     $types: string number color calculation;
 
     @each $name, $value in $values{
@@ -46,65 +55,79 @@
 
         @if string.length($name) == 0{
             .#{$selector}{
-                #{$css}: #{$value};
+                #{$css}: -is-important(#{$value}, $important);
             }
         } @else{
             .#{$selector}-#{$name}{
-                #{$css}: #{$value};
+                #{$css}: -is-important(#{$value}, $important);
             }
         }
     }
 }
 
-@mixin -apply-selector-mixin($selector, $css, $values){
+@mixin -apply-selector-mixin($selector, $css, $values, $important){
     @if meta.type-of($css) == string{
-        @include -handle-css-string($selector, $css, $values);
+        @include -handle-css-string($selector, $css, $values, $important);
     } @else if meta.type-of($css) == list{
-        @include -handle-css-list($selector, $css, $values);
+        @include -handle-css-list($selector, $css, $values, $important);
     } @else{
         @error "css should be string or list of string.";
     }
 }
 
-@mixin -iterate-break-points($name, $css, $values){
+@mixin -iterate-break-points($name, $css, $values, $important){
     @each $key, $point in rwd.$break-points{
         @if $key == "xs"{
             @media (width < #{$point}) {
-                @include -apply-selector-mixin(#{$name}-#{$key}, $css, $values);
+                @include -apply-selector-mixin(#{$name}-#{$key}, $css, $values, $important);
             }
         } @else{
             @media (width >= #{$point}) {
-                @include -apply-selector-mixin(#{$name}-#{$key}, $css, $values);
+                @include -apply-selector-mixin(#{$name}-#{$key}, $css, $values, $important);
             }
         }
     }
 }
 
-@function -get-or-default($value, $default){
-    /* stylelint-disable-next-line scss/at-if-no-null */
-    @if $value == null{
-        @return $default;
+/*
+* get value by ethier main value or other values
+* @param $main: any
+* @param $others: list<any>
+* @return any
+**/
+@function get-or-others($main, $others...){
+    @if $main != null{
+        @return $main;
     } @else{
-        @return $value;
+        @each $other in $others{
+            @if $other != null {
+                @return $other;
+            }
+        }
+
+        @error "One of others should be not null.";
     }
 }
 
 @mixin -make-property-mixin($property){
     $name: map.get($property, "name");
-    $responsive: -get-or-default(map.get($property, "responsive"), true);
+    $important: get-or-others(map.get($property, "important"), true);
+    $responsive: get-or-others(map.get($property, "responsive"), true);
     $values: map.get($property, "values");
     $css: map.get($property, "css");
 
-    @include -apply-selector-mixin($name, $css, $values);
+    @include -apply-selector-mixin($name, $css, $values, $important);
     
     @if $responsive{
-        @include -iterate-break-points($name, $css, $values);
+        @include -iterate-break-points($name, $css, $values, $important);
     }
 }
 
 /* format: name[-rwd][-value]; */
 
-/* type Property{
+/* 
+* type Property{
+*  important: boolean = true
 *  responsive: boolean = true
 *  name: string
 *  css: string | list<string> // seperate with space
@@ -125,7 +148,23 @@
 /*
 * use it when property has only default.
 * @param $value: string | list<string>
+* @return map
 **/
 @function only-default($value){
-    @return ('': $value)
+    @return ('': $value);
+}
+
+/**
+* support ternary statements
+* @param $bool: boolean
+* @param $value1: any
+* @param $value2: any
+* @return any
+*/
+@function if-else($bool, $value1, $value2){
+    @if $bool{
+        @return $value1;
+    } @else{
+        @return $value2;
+    }
 }

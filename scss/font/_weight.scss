@@ -2,13 +2,14 @@
 @include map-properties((
     font-weight: (
         name: font-weight,
+        responsive: get-or-others(config("font", "weight", "responsive"), true),
         css: font-weight,
         values: (
-            "lighter": config("font", "weight", "lighter"),
-            "light": config("font", "weight", "light"),
-            "normal": config("font", "weight", "normal"),
-            "bold": config("font", "weight", "bold"),
-            "bolder": config("font", "weight", "bolder")
+            "lighter": get-or-others(config("font", "weight", "lighter"), 200),
+            "light": get-or-others(config("font", "weight", "light"), 300),
+            "normal": get-or-others(config("font", "weight", "normal"), 400),
+            "bold": get-or-others(config("font", "weight", "bold"), 700),
+            "bolder": get-or-others(config("font", "weight", "bolder"), 900)
         )
     )
 ));

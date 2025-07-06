@@ -2,7 +2,7 @@
 @include map-properties((
     justify-content: (
         name: justify-content,
-        responsive: config("justify-content", "responsive"),
+        responsive: get-or-others(config("justify-content", "responsive"), true),
         css: justify-content,
         values: (
             center: center, 

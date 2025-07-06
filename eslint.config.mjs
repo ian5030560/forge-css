@@ -6,7 +6,7 @@ export default [
   {
     files: ["src/**/*.{js,mjs,cjs,ts}", "test/**/*.{js,mjs,cjs,ts}"]
   },
-  { languageOptions: { globals: globals.browser } },
+  { languageOptions: { globals: globals.es2020 } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -17,5 +17,5 @@ export default [
       "no-explicit-any": "off",
       "@typescript-eslint/no-explicit-any": "off"
     },
-  },
+  }
 ];

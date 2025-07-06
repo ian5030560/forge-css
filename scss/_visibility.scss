@@ -2,7 +2,7 @@
 @include map-properties((
     visibility: (
         name: visibility,
-        responsive: config("visibility", "responsive"),
+        responsive: get-or-others(config("visibility", "responsive"), false),
         css: visibility,
         values: (
             visible: visible, 

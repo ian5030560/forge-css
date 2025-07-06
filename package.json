@@ -10,14 +10,15 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup --config rollup.config.js",
-    "test": "jest --config=jest.config.js",
-    "test:watch": "jest --config=jest.config.js --watch",
+    "build": "npm run clean dist && rollup --config rollup.config.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest --config=jest.config.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest --watch",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "style-lint": "npx stylelint sass/**/*",
     "dev": "tsx src/cli.ts -o output.css",
-    "prod": "npm link && forge -o output.css"
+    "prod": "npm link && forge -o output.css",
+    "clean": "node scripts/clean.js"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +28,6 @@
     "@eslint/js": "^9.30.0",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-eslint": "^9.0.5",
-    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.4",
     "@types/jest": "^30.0.0",
@@ -40,6 +40,7 @@
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-standard-scss": "^15.0.1",
     "ts-jest": "^29.4.0",
+    "ts-jest-mock-import-meta": "^1.3.0",
     "tslib": "^2.8.1",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",

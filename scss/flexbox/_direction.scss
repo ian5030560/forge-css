@@ -2,7 +2,7 @@
 @include map-properties((
     flex-direction: (
         name: "flex-direction",
-        responsive: config("flex", "direction", "responsive"),
+        responsive: get-or-others(config("flex", "direction", "responsive"), true),
         css: flex-direction,
         values: (
             row: row, 

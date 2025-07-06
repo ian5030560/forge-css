@@ -2,7 +2,7 @@
 @include map-properties((
     text-transform: (
         name: text-transform,
-        responsive: config("text", "transform", "responsive"),
+        responsive: get-or-others(config("text", "transform", "responsive"), false),
         css: text-transform,
         values: (
             capitalize: capitalize, 

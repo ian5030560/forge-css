@@ -2,7 +2,7 @@
 @include map-properties((
     direction: (
         name: direction,
-        responsive: config("direction", "responsive"),
+        responsive: get-or-others(config("direction", "responsive"), false),
         css: direction,
         values: (
             ltr: ltr,

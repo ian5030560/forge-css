@@ -6,11 +6,9 @@
 @use "./float";
 @use "./height";
 @use "./line_height";
-@use "./margin";
 @use "./object_fit";
 @use "./opacity";
 @use "./overflow";
-@use "./padding";
 @use "./stack";
 @use "./user_select";
 @use "./visibility";
@@ -21,5 +19,5 @@
 @use "./position";
 @use "./text";
 @use "./transform";
-@use "./gap";
 @use "./cursor";
+@use "./spacing";

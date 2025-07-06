@@ -2,7 +2,7 @@
 @include map-properties((
     flex-grow: (
         name: flex-grow,
-        responsive: config("flex", "grow", "responsive"),
+        responsive: get-or-others(config("flex", "grow", "responsive"), false),
         css: flex-grow,
         values: (
             "0": 0,

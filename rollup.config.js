@@ -1,7 +1,6 @@
 import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
 import eslint from '@rollup/plugin-eslint';
-import json from '@rollup/plugin-json';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
@@ -22,7 +21,6 @@ export default defineConfig({
         nodeResolve(),
         commonjs({ignoreDynamicRequires: true}),
         typescript({ tsconfig: "./tsconfig.json" }),
-        eslint(),
-        json(),
+        eslint()
     ],
 });

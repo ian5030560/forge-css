@@ -2,7 +2,7 @@
 @include map-properties((
     aspect-ratio: (
         name: aspect-ratio,
-        responsive: config("aspect-ratio", "responsive"),
+        responsive: get-or-others(config("aspect-ratio", "responsive"), false),
         css: aspect-ratio,
         values: (
             "1x1": "1 / 1", 

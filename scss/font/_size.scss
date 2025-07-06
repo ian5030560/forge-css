@@ -2,16 +2,16 @@
 @include map-properties((
     font-size: (
         name: font-size,
-        responsive: config("font", "size", "responsive"),
+        responsive: get-or-others(config("font", "size", "responsive"), true),
         css: font-size,
         values: (
-            "smaller": config("font", "size", "smaller"),
-            "small": config("font", "size", "small"),
-            "normal": config("font", "size", "normal"),
-            "median": config("font", "size", "median"),
-            "large": config("font", "size", "large"),
-            "larger": config("font", "size", "larger"),
-            "xlarge": config("font", "size", "xlarge")
+            "smaller": get-or-others(config("font", "size", "smaller"), 4px),
+            "small": get-or-others(config("font", "size", "small"), 8px),
+            "normal": get-or-others(config("font", "size", "normal"), 16px),
+            "median": get-or-others(config("font", "size", "median"), 24px),
+            "large": get-or-others(config("font", "size", "large"), 32px),
+            "larger": get-or-others(config("font", "size", "larger"), 48px),
+            "xlarge": get-or-others(config("font", "size", "xlarge"), 64px)
         )
     )
 ));
