@@ -2,6 +2,7 @@
 @include map-properties((
     text-truncation: (
         name: text-truncation,
+        important: get-or-others(config("text", "truncation", "important"), true),
         responsive: get-or-others(config("text", "truncation", "responsive"), false),
         css: overflow text-overflow white-space,
         values: only-default(hidden ellipsis nowrap)
@@ -9,6 +10,7 @@
 
     text-break: (
         name: text-break,
+        important: get-or-others(config("text", "break", "important"), true),
         responsive: get-or-others(config("text", "break", "responsive"), false),
         css: word-wrap word-break,
         values: only-default(break-word break-word)

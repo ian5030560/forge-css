@@ -2,6 +2,7 @@
 @include map-properties((
     cursor: (
         name: cursor,
+        important: get-or-others(config("cursor", "important"), true),
         responsive: get-or-others(config("cursor", "responsive"), false),
         css: cursor,
         values: (

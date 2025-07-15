@@ -2,6 +2,7 @@
 @include map-properties((
     display: (
         name: display,
+        important: get-or-others(config("display", "important"), true),
         responsive: get-or-others(config("display", "responsive"), true),
         css: display,
         values: (

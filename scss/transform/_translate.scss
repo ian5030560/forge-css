@@ -2,6 +2,7 @@
 @include map-properties((
     translate: (
         name: translate,
+        important: get-or-others(config("transform", "translate", "important"), true),
         responsive: get-or-others(config("transform", "translate", "responsive"), false),
         css: transform,
         values: (
@@ -13,6 +14,7 @@
     ),
     translate-x: (
         name: translate-x,
+        important: get-or-others(config("transform", "translate", "x", "important"), true),
         responsive: get-or-others(config("transform", "translate", "x", "responsive"), false),
         css: transform,
         values: (
@@ -24,6 +26,7 @@
     ),
     translate-y: (
         name: translate-y,
+        important: get-or-others(config("transform", "translate", "y", "important"), true),
         responsive: get-or-others(config("transform", "translate", "y", "responsive"), false),
         css: transform,
         values: (

@@ -2,6 +2,7 @@
 @include map-properties((
     vstack: (
         name: vstack,
+        important: false,
         responsive: get-or-others(config("stack", "vertical", "responsive"), true),
         css: display flex-direction,
         values: only-default(flex column),
@@ -9,6 +10,7 @@
 
     hstack: (
         name: hstack,
+        important: false,
         responsive: get-or-others(config("stack", "horizontal", "responsive"), true),
         css: display flex-direction,
         values: only-default(flex row),

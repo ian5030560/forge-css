@@ -52,12 +52,14 @@
 @include map-properties((
     margin: (
         name: "margin",
+        important: get-or-others(config("margin", "important"), true),
         responsive: get-or-others(config("margin", "responsive"), true),
         css: margin,
         values: get-margins()
     ),
     margin-x: (
         name: "margin-x",
+        important: get-or-others(config("margin", "x", "important"), true),
         responsive: get-or-others(config("margin", "x", "responsive"), true),
         css: margin-left margin-right,
         values: get-margins-binary("x", "x")
@@ -70,24 +72,28 @@
     ),
     margin-top: (
         name: "margin-top",
+        important: get-or-others(config("margin", "top", "important"), true),
         responsive: get-or-others(config("margin", "top", "responsive"), true),
         css: margin-top,
         values: get-margins("top", "y")
     ),
     margin-bottom: (
         name: "margin-bottom",
+        important: get-or-others(config("margin", "bottom", "important"), true),
         responsive: get-or-others(config("margin", "bottom", "responsive"), true),
         css: margin-bottom,
         values: get-margins("bottom", "y")
     ),
     margin-left: (
         name: "margin-left",
+        important: get-or-others(config("margin", "left", "important"), true),
         responsive: get-or-others(config("margin", "left", "responsive"), true),
         css: margin-left,
         values: get-margins("left", "x")
     ),
     margin-right: (
         name: "margin-right",
+        important: get-or-others(config("margin", "right", "important"), true),
         responsive: get-or-others(config("margin", "right", "responsive"), true),
         css: margin-right,
         values: get-margins("right", "x")

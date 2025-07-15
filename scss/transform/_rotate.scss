@@ -2,6 +2,7 @@
 @include map-properties((
     rotate: (
         name: rotate,
+        important: get-or-others(config("rotate", "important"), true),
         responsive: get-or-others(config("rotate", "responsive"), false),
         css: transform,
         values: (

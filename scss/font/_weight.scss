@@ -2,6 +2,7 @@
 @include map-properties((
     font-weight: (
         name: font-weight,
+        important: get-or-others(config("font", "weight", "important"), true),
         responsive: get-or-others(config("font", "weight", "responsive"), true),
         css: font-weight,
         values: (

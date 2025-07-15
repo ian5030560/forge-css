@@ -2,6 +2,7 @@
 @include map-properties((
     text-decoration: (
         name: text-decoration,
+        important: get-or-others(config("text", "decoration", "important"), true),
         responsive: get-or-others(config("text", "decoration", "responsive"), false),
         css: text-decoration,
         values: (

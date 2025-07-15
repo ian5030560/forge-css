@@ -28,6 +28,7 @@
 @include map-properties((
     gap: (
         name: gap,
+        important: get-or-others(config("gap", "important"), true),
         responsive: get-or-others(
             config("gap", "responsive"), 
             config("spacing", "responsive"), 
@@ -39,6 +40,7 @@
 
     row-gap: (
         name: row-gap,
+        important: get-or-others(config("gap", "row", "important"), true),
         responsive: get-or-others(
             config("gap", "row", "responsive"),
             config("spacing", "x", "responsive")
@@ -51,6 +53,7 @@
 
     column-gap: (
         name: column-gap,
+        important: get-or-others(config("gap", "column", "important"), true),
         responsive: get-or-others(
             config("gap", "column", "responsive"),
             config("spacing", "y", "responsive"),

@@ -50,42 +50,49 @@
 @include map-properties((
     padding: (
         name: "padding",
+        important: get-or-others(config("padding", "important"), true),
         responsive: get-or-others(config("padding", "responsive"), true),
         css: padding,
         values: get-paddings()
     ),
     padding-x: (
         name: "padding-x",
+        important: get-or-others(config("padding", "x", "important"), true),
         responsive: get-or-others(config("padding", "x", "responsive"), true),
         css: padding-left padding-right,
         values: get-paddings-binary("x", "x")
     ),
     padding-y: (
         name: "padding-y",
+        important: get-or-others(config("padding", "y", "important"), true),
         responsive: get-or-others(config("padding", "y", "responsive"), true),
         css: padding-top padding-bottom,
         values: get-paddings-binary("y", "y")
     ),
     padding-top: (
         name: "padding-top",
+        important: get-or-others(config("padding", "top", "important"), true),
         responsive: get-or-others(config("padding", "top", "responsive"), true),
         css: padding-top,
         values: get-paddings("top", "y")
     ),
     padding-bottom: (
         name: "padding-bottom",
+        important: get-or-others(config("padding", "bottom", "important"), true),
         responsive: get-or-others(config("padding", "bottom", "responsive"), true),
         css: padding-bottom,
         values: get-paddings("bottom", "y")
     ),
     padding-left: (
         name: "padding-left",
+        important: get-or-others(config("padding", "left", "important"), true),
         responsive: get-or-others(config("padding", "left", "responsive"), true),
         css: padding-left,
         values: get-paddings("left", "x")
     ),
     padding-right: (
         name: "padding-right",
+        important: get-or-others(config("padding", "right", "important"), true),
         responsive: get-or-others(config("padding", "right", "responsive"), true),
         css: padding-right,
         values: get-paddings("right", "x")

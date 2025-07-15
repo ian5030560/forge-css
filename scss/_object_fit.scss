@@ -2,6 +2,7 @@
 @include map-properties((
     object-fit: (
         name: object-fit,
+        important: get-or-others(config("object-fit", "important"), true),
         responsive: get-or-others(config("object-fit", "responsive"), false),
         css: object-fit,
         values: (

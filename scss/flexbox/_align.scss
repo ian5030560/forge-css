@@ -12,12 +12,14 @@ $-values: (
 @include map-properties((
     align-items:(
         name: "align-items",
+        important: get-or-others(config("align-items", "important"), true),
         responsive: get-or-others(config("align-items", "responsive"), true),
         css: align-items,
         values: $-values
     ),
     align-self:(
         name: "align-self",
+        important: get-or-others(config("align-self", "important"), true),
         responsive: get-or-others(config("align-self", "responsive"), true),
         css: align-self,
         values: $-values

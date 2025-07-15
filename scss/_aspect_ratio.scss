@@ -2,6 +2,7 @@
 @include map-properties((
     aspect-ratio: (
         name: aspect-ratio,
+        important: get-or-others(config("aspect-ratio", "important"), true),
         responsive: get-or-others(config("aspect-ratio", "responsive"), false),
         css: aspect-ratio,
         values: (
