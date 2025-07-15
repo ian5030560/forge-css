@@ -8,18 +8,20 @@
 
     @for $i from 0 to list.length($spacer){
         $values: map.set($values, #{$i}, 
-        if-else($key1 == '',
-        get-or-others(
-            config("margin", #{$i}),
-            config("spacing", #{$i}),
-            list.nth($spacer, $i + 1)
-        ),
-        get-or-others(
-            config("margin", $key1, #{$i}),
-            config("spacing", $key2, #{$i}),
-            config("spacing", #{$i}),
-            list.nth($spacer, $i + 1)
-        )));
+        if-else(
+            $key1 == '',
+            get-or-others(
+                config("margin", #{$i}),
+                config("spacing", #{$i}),
+                list.nth($spacer, $i + 1)
+            ),
+            get-or-others(
+                config("margin", $key1, #{$i}),
+                config("spacing", $key2, #{$i}),
+                config("spacing", #{$i}),
+                list.nth($spacer, $i + 1)
+            )
+        ));
     }
 
     @return $values;

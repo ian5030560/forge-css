@@ -51,7 +51,7 @@ function toSass(obj: any) {
  * make the custom function to access values in the config file
  * 
  * @example
- * in scss:
+ * // in scss:
  * $value = config("gap", "responsive"); // get 'responsive' property of 'gap' property in the config file.
  */
 export default function makeConfigFunction(config?: string): Record<string, CustomFunction<"sync">> {
