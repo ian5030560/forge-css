@@ -1,7 +1,7 @@
 @use "./util" as *;
 @include map-properties((
     float: (
-        name: float,
+        name: "float",
         important: get-or-others(config("float", "important"), true),
         responsive: get-or-others(config("float", "responsive"), false),
         css: float,

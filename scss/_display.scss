@@ -1,7 +1,7 @@
 @use "./util" as *;
 @include map-properties((
     display: (
-        name: display,
+        name: "d",
         important: get-or-others(config("display", "important"), true),
         responsive: get-or-others(config("display", "responsive"), true),
         css: display,

@@ -1,7 +1,7 @@
 @use "../util" as *;
 @include map-properties((
     vertical-align: (
-        name: vertical-align,
+        name: "v-align",
         important: get-or-others(config("vertical-align", "important"), true),
         responsive: get-or-others(config("vertical-align", "responsive"), false),
         css: vertical-align,

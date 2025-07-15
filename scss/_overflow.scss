@@ -10,21 +10,21 @@ $-values: (
 
 @include map-properties((
     overflow: (
-        name: overflow,
+        name: "overflow",
         important: get-or-others(config("overflow", "important"), true),
         responsive: get-or-others(config("overflow", "responsive"), false),
         css: overflow,
         values: $-values
     ),
     overflow-x: (
-        name: overflow-x,
+        name: "overflow-x",
         important: get-or-others(config("overflow", "x", "important"), true),
         responsive: get-or-others(config("overflow", "x", "responsive"), false),
         css: overflow-x,
         values: $-values
     ),
     overflow-y: (
-        name: overflow-y,
+        name: "overflow-y",
         important: get-or-others(config("overflow", "y", "important"), true),
         responsive: get-or-others(config("overflow", "y", "responsive"), false),
         css: overflow-y,

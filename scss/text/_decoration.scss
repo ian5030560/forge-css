@@ -1,7 +1,7 @@
 @use "../util" as *;
 @include map-properties((
     text-decoration: (
-        name: text-decoration,
+        name: "text-decorate",
         important: get-or-others(config("text", "decoration", "important"), true),
         responsive: get-or-others(config("text", "decoration", "responsive"), false),
         css: text-decoration,

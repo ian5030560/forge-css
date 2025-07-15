@@ -11,7 +11,7 @@ $-values: (
 
 @include map-properties((
     height: (
-        name: height,
+        name: "h",
         important: get-or-others(config("height", "important"), true),
         responsive: get-or-others(config("height", "responsive"), true),
         css: height,
@@ -19,7 +19,7 @@ $-values: (
     ),
 
     min-height: (
-        name: min-height,
+        name: "min-h",
         important: get-or-others(config("height", "min", "important"), true),
         responsive: get-or-others(config("height", "min", "responsive"), true),
         css: min-height,
@@ -27,7 +27,7 @@ $-values: (
     ),
 
     max-height: (
-        name: max-height,
+        name: "max-h",
         important: get-or-others(config("height", "max", "important"), true),
         responsive: get-or-others(config("height", "max", "responsive"), true),
         css: max-height,

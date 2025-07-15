@@ -1,17 +1,15 @@
 @use "../util" as *;
 @include map-properties((
     font-italic: (
-        name: font,
+        name: "font-italic",
         important: get-or-others(config("font", "italic", "important"), true),
         responsive: get-or-others(config("font", "italic", "responsive"), false),
         css: font-style,
-        values: (
-            italic: italic
-        )
+        values: only-default(italic)
     ),
 
     font-family: (
-        name: font,
+        name: "font",
         important: get-or-others(config("font", "family", "important"), true),
         responsive: get-or-others(config("font", "family", "responsive"), false),
         css: font-family,

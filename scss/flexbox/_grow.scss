@@ -1,7 +1,7 @@
 @use "../util" as *;
 @include map-properties((
     flex-grow: (
-        name: flex-grow,
+        name: "flex-grow",
         important: get-or-others(config("flex", "grow", "important"), true),
         responsive: get-or-others(config("flex", "grow", "responsive"), false),
         css: flex-grow,

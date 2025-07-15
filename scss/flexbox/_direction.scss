@@ -1,7 +1,7 @@
 @use "../util" as *;
 @include map-properties((
     flex-direction: (
-        name: "flex-direction",
+        name: "flex-dir",
         important: get-or-others(config("flex", "direction", "important"), true),
         responsive: get-or-others(config("flex", "direction", "responsive"), true),
         css: flex-direction,

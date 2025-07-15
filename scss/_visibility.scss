@@ -1,7 +1,7 @@
 @use "./util" as *;;
 @include map-properties((
     visibility: (
-        name: visibility,
+        name: "visual",
         important: get-or-others(config("visibility", "important"), true),
         responsive: get-or-others(config("visibility", "responsive"), false),
         css: visibility,

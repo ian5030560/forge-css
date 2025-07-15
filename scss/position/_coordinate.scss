@@ -8,28 +8,28 @@ $-values: (
 
 @include map-properties((
     top: (
-        name: top,
+        name: "top",
         important: get-or-others(config("top", "important"), true),
         responsive: get-or-others(config("top", "responsive"), false),
         css: top,
         values: $-values
     ),
     left: (
-        name: left,
+        name: "left",
         important: get-or-others(config("left", "important"), true),
         responsive: get-or-others(config("left", "responsive"), false),
         css: left,
         values: $-values
     ),
     bottom: (
-        name: bottom,
+        name: "bottom",
         important: get-or-others(config("bottom", "important"), true),
         responsive: get-or-others(config("bottom", "responsive"), false),
         css: bottom,
         values: $-values
     ),
     right: (
-        name: right,
+        name: "right",
         important: get-or-others(config("right", "important"), true),
         responsive: get-or-others(config("right", "responsive"), false),
         css: right,

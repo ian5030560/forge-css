@@ -1,7 +1,7 @@
 @use "../util" as *;
 @include map-properties((
     justify-content: (
-        name: justify-content,
+        name: "justify-content",
         important: get-or-others(config("justify-content", "important"), true),
         responsive: get-or-others(config("justify-content", "responsive"), true),
         css: justify-content,

@@ -1,7 +1,7 @@
 @use "../util" as *;
 @include map-properties((
     text-transform: (
-        name: text-transform,
+        name: "text-transform",
         important: get-or-others(config("text", "transform", "important"), true),
         responsive: get-or-others(config("text", "transform", "responsive"), false),
         css: text-transform,

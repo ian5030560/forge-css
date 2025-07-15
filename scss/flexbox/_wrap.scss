@@ -1,7 +1,7 @@
 @use "../util" as *;
 @include map-properties((
     flex-wrap: (
-        name: flex-wrap,
+        name: "flex-wrap",
         important: get-or-others(config("flex", "wrap", "important"), true),
         responsive: get-or-others(config("flex", "wrap", "responsive"), false),
         css: flex-wrap,

@@ -1,7 +1,7 @@
 @use "./util" as *;;
 @include map-properties((
     opacity: (
-        name: opacity,
+        name: "opacity",
         important: get-or-others(config("opacity", "important"), true),
         responsive: get-or-others(config("opacity", "responsive"), false),
         css: opacity,

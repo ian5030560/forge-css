@@ -1,7 +1,7 @@
 @use "../util" as *;
 @include map-properties((
     text-truncation: (
-        name: text-truncation,
+        name: "text-truncate",
         important: get-or-others(config("text", "truncation", "important"), true),
         responsive: get-or-others(config("text", "truncation", "responsive"), false),
         css: overflow text-overflow white-space,
@@ -9,7 +9,7 @@
     ),
 
     text-break: (
-        name: text-break,
+        name: "text-break",
         important: get-or-others(config("text", "break", "important"), true),
         responsive: get-or-others(config("text", "break", "responsive"), false),
         css: word-wrap word-break,

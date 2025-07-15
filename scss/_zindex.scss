@@ -1,13 +1,13 @@
 @use "./util" as *;;
 @include map-properties((
     z-index: (
-        name: z-index,
+        name: "z-id",
         important: get-or-others(config("z-index", "important"), true),
         responsive: get-or-others(config("z-index", "responsive"), false),
         css: z-index,
         values: (
-            "-2": -2,
-            "-1": -1,
+            "n2": -2,
+            "n1": -1,
             "0": 0,
             "1": 1,
             "2": 2,

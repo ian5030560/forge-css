@@ -1,7 +1,7 @@
 @use "../util" as *;
 @include map-properties((
     flex-shrink: (
-        name: flex-shrink,
+        name: "flex-shrink",
         important: get-or-others(config("flex", "shrink", "important"), true),
         responsive: get-or-others(config("flex", "shrink", "responsive"), false),
         css: flex-shrink,

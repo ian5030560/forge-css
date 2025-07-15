@@ -1,7 +1,7 @@
 @use "util" as *;
 @include map-properties((
     font-size: (
-        name: font-size,
+        name: "font-size",
         important: get-or-others(config("font", "size", "important"), true),
         responsive: get-or-others(config("font", "size", "responsive"), true),
         css: font-size,

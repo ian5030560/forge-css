@@ -51,48 +51,48 @@
 
 @include map-properties((
     margin: (
-        name: "margin",
+        name: "m",
         important: get-or-others(config("margin", "important"), true),
         responsive: get-or-others(config("margin", "responsive"), true),
         css: margin,
         values: get-margins()
     ),
     margin-x: (
-        name: "margin-x",
+        name: "mx",
         important: get-or-others(config("margin", "x", "important"), true),
         responsive: get-or-others(config("margin", "x", "responsive"), true),
         css: margin-left margin-right,
         values: get-margins-binary("x", "x")
     ),
     margin-y: (
-        name: "margin-y",
+        name: "my",
         responsive: get-or-others(config("margin", "y", "responsive"), true),
         css: margin-top margin-bottom,
         values: get-margins-binary("y", "y")
     ),
     margin-top: (
-        name: "margin-top",
+        name: "mt",
         important: get-or-others(config("margin", "top", "important"), true),
         responsive: get-or-others(config("margin", "top", "responsive"), true),
         css: margin-top,
         values: get-margins("top", "y")
     ),
     margin-bottom: (
-        name: "margin-bottom",
+        name: "mb",
         important: get-or-others(config("margin", "bottom", "important"), true),
         responsive: get-or-others(config("margin", "bottom", "responsive"), true),
         css: margin-bottom,
         values: get-margins("bottom", "y")
     ),
     margin-left: (
-        name: "margin-left",
+        name: "ml",
         important: get-or-others(config("margin", "left", "important"), true),
         responsive: get-or-others(config("margin", "left", "responsive"), true),
         css: margin-left,
         values: get-margins("left", "x")
     ),
     margin-right: (
-        name: "margin-right",
+        name: "mr",
         important: get-or-others(config("margin", "right", "important"), true),
         responsive: get-or-others(config("margin", "right", "responsive"), true),
         css: margin-right,

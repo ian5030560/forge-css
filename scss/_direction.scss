@@ -1,7 +1,7 @@
 @use "./util" as *;
 @include map-properties((
     direction: (
-        name: direction,
+        name: "dir",
         important: get-or-others(config("direction", "important"), true),
         responsive: get-or-others(config("direction", "responsive"), false),
         css: direction,
