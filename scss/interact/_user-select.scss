@@ -1,4 +1,4 @@
-@use "./util" as *;;
+@use "../util" as *;;
 @include map-properties((
     user-select: (
         name: "user-select",
@@ -6,8 +6,8 @@
         responsive: get-or-others(config("user-select", "responsive"), false),
         css: -webkit-user-select user-select,
         values: (
-            none: none none, 
-            text: text text, 
+            none: none none,
+            text: text text,
             all: all all
         )
     )

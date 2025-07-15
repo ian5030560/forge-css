@@ -1,16 +1,15 @@
-@use "./aspect_ratio";
+@use "./aspect-ratio";
 @use "./border";
 @use "./container";
 @use "./direction";
 @use "./display";
 @use "./float";
 @use "./height";
-@use "./line_height";
-@use "./object_fit";
+@use "./line-height";
+@use "./object-fit";
 @use "./opacity";
 @use "./overflow";
 @use "./stack";
-@use "./user_select";
 @use "./visibility";
 @use "./width";
 @use "./zindex";
@@ -21,3 +20,4 @@
 @use "./transform";
 @use "./cursor";
 @use "./spacing";
+@use "./interact";
