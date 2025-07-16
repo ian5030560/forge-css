@@ -1,6 +1,7 @@
 {
-  "name": "forge-css",
-  "version": "0.0.1",
+  "private": false,
+  "name": "@ian1114/forge-css",
+  "version": "0.0.0-beta",
   "main": "dist/index.mjs",
   "type": "module",
   "bin": {
@@ -20,10 +21,14 @@
     "prod": "npm link && forge -o output.css",
     "clean": "node scripts/clean.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "css",
+    "sass/scss",
+    "bootstrap-like"
+  ],
+  "author": "ian1114",
   "license": "ISC",
-  "description": "",
+  "description": "A css tool to build utility css from scss files prepared",
   "devDependencies": {
     "@eslint/js": "^9.30.0",
     "@rollup/plugin-commonjs": "^28.0.6",
@@ -53,5 +58,12 @@
   },
   "overrides": {
     "eslint": "^9.30.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ian5030560/forge-css.git"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
