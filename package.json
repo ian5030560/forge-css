@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@ian1114/forge-css",
-  "version": "0.0.0-beta",
+  "version": "0.0.0",
   "main": "dist/index.mjs",
   "type": "module",
   "bin": {
