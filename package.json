@@ -1,5 +1,4 @@
 {
-  "private": false,
   "name": "@ian1114/forge-css",
   "version": "0.0.0",
   "main": "dist/index.mjs",
@@ -46,7 +45,6 @@
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-standard-scss": "^15.0.1",
     "ts-jest": "^29.4.0",
-    "ts-jest-mock-import-meta": "^1.3.0",
     "tslib": "^2.8.1",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
@@ -62,8 +60,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ian5030560/forge-css.git"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
