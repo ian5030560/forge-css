@@ -1,6 +1,6 @@
 {
   "name": "@ian1114/forge-css",
-  "version": "0.0.0",
+  "version": "0.0.0-beta",
   "main": "dist/index.mjs",
   "type": "module",
   "bin": {
