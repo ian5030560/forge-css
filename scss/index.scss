@@ -4,14 +4,12 @@
 @use "./direction";
 @use "./display";
 @use "./float";
-@use "./height";
 @use "./line-height";
 @use "./object-fit";
 @use "./opacity";
 @use "./overflow";
 @use "./stack";
 @use "./visibility";
-@use "./width";
 @use "./zindex";
 @use "./flexbox";
 @use "./font";
@@ -21,3 +19,4 @@
 @use "./cursor";
 @use "./spacing";
 @use "./interact";
+@use "./size";
