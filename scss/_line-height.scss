@@ -6,7 +6,6 @@
         responsive: get-or-others(config("line-height", "responsive"), false),
         css: line-height,
         values: (
-            "1": 1,
             "small": get-or-others(config("line-height", "small"), 1.25)
             "normal": get-or-others(config("line-height", "normal"), 1.5),
             "medium": get-or-others(config("line-height", "medium"), 1.75),
