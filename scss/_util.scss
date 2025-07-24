@@ -109,12 +109,45 @@
     }
 }
 
+@mixin -make-variables($var, $values){
+    @if meta.type-of($var) != string {
+        @error "var should be string.";
+    }
+
+    :root{
+        @each $name, $value in $values{
+            @if string.length($name) == 0{
+                @error "var name should not be empty.";
+            }
+
+            #{$var}-#{$name}: #{$value};
+        }
+    }
+}
+
+@function -convert-to-variables($var, $values){
+    $new-values: ();
+
+    @each $key in map.keys($values){
+        $new-values: map.set($new-values, $key, var(#{$var}-#{$key}));
+    }
+
+    @return $new-values;
+}
+
 @mixin -make-property-mixin($property){
     $name: map.get($property, "name");
     $important: get-or-others(map.get($property, "important"), true);
     $responsive: get-or-others(map.get($property, "responsive"), true);
     $values: map.get($property, "values");
     $css: map.get($property, "css");
+    $var: map.get($property, "var");
+
+    @if $var != null{
+        @include -make-variables($var, $values);
+
+        $values: -convert-to-variables($var, $values);
+    }
 
     @include -apply-selector-mixin($name, $css, $values, $important);
     
@@ -141,6 +174,7 @@
 */
 @mixin map-properties($property-map){
     @each $key in map.keys($property-map){
+        @debug $key;
         @include -make-property-mixin(map.get($property-map, $key));
     }
 }

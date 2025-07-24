@@ -5,6 +5,7 @@
         important: get-or-others(config("font", "size", "important"), true),
         responsive: get-or-others(config("font", "size", "responsive"), true),
         css: font-size,
+        var: --font-size,
         values: (
             "smaller": get-or-others(config("font", "size", "smaller"), 4px),
             "small": get-or-others(config("font", "size", "small"), 8px),

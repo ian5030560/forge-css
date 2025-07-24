@@ -1,25 +1,29 @@
-@use "./util" as *;
+@use "../util" as *;
 @use "./spacer" as *;
 @use "sass:list";
 @use "sass:map";
 
-@function get-gaps($key1: '', $key2: ''){
+@function get-gap(){
+    $values: ();
+
+    @for $i from 0 to list.length($spacer){
+        $values: map.set($values, #{$i}, var(--gap-x-#{$i}) var(--gap-y-#{$i}))
+    }
+
+    @return $values;
+}
+
+
+@function get-gap-coord($key){
     $values: ();
     
     @for $i from 0 to list.length($spacer){
         $values: map.set($values, #{$i}, 
-        if-else($key1 == '',
         get-or-others(
+            config("gap", $key, #{$i}),
             config("gap", #{$i}),
-            config("spacing", #{$i}),
             list.nth($spacer, $i + 1)
-        ),
-        get-or-others(
-            config("gap", $key1, #{$i}),
-            config("spacing", $key2, #{$i}),
-            config("spacing", #{$i}),
-            list.nth($spacer, $i + 1)
-        )));
+        ));
     }
 
     @return $values;
@@ -29,38 +33,43 @@
     gap: (
         name: "gap",
         important: get-or-others(config("gap", "important"), true),
-        responsive: get-or-others(
-            config("gap", "responsive"), 
-            config("spacing", "responsive"), 
-            false
-        ),
+        responsive: get-or-others(config("gap", "responsive"), false),
         css: gap,
-        values: get-gaps()
+        var: --gap,
+        values: get-gap()
     ),
 
-    row-gap: (
+    gap-x: (
         name: "gap-x",
-        important: get-or-others(config("gap", "row", "important"), true),
+        important: get-or-others(
+            config("gap", "row", "important"),
+            config("gap", "important")
+            true
+        ),
         responsive: get-or-others(
-            config("gap", "row", "responsive"),
-            config("spacing", "x", "responsive")
-            config("spacing", "responsive"),
+            config("gap", "x", "responsive"),
+            config("gap", "responsive"),
             false
         ),
         css: row-gap,
-        values: get-gaps("row", "x")
+        var: --gap-x,
+        values: get-gap-coord("x")
     ),
 
     column-gap: (
         name: "gap-y",
-        important: get-or-others(config("gap", "column", "important"), true),
+        important: get-or-others(
+            config("gap", "y", "important"),
+            config("gap", "important"),
+            true
+        ),
         responsive: get-or-others(
-            config("gap", "column", "responsive"),
-            config("spacing", "y", "responsive"),
-            config("spacing", "responsive"),
+            config("gap", "y", "responsive"),
+            config("gap", "responsive"),
             false
         ),
         css: column-gap,
-        values: get-gaps("column", "y")
+        var: --gap-y,
+        values: get-gap-coord("y")
     ),
 ));

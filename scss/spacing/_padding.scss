@@ -3,45 +3,38 @@
 @use "sass:map";
 @use "./spacer" as *;
 
-@function get-paddings($key1: '', $key2: ''){
+@function get-padding-sole($key1, $key2){
     $values: ();
 
     @for $i from 0 to list.length($spacer){
-        $values: map.set($values, #{$i}, 
-        if-else(key1 == '',
-        get-or-others(
-            config("padding", #{$i}),
-            config("spacing", #{$i}),
-            list.nth($spacer, $i + 1)
-        ),
-        get-or-others(
-            config("padding", $key1, #{$i}),
-            config("spacing", $key2, #{$i}),
-            config("spacing", #{$i}),
-            list.nth($spacer, $i + 1)
-        )));
+        $values: map.set($values, #{$i},
+            get-or-others(
+                config("padding", $key1, #{$i}),
+                config("padding", $key2, #{$i}),
+                config("padding", #{$i}),
+                list.nth($spacer, $i + 1)
+            )
+        );
     }
 
     @return $values;
 }
 
-@function get-paddings-binary($key1: '', $key2: ''){
+@function get-padding-coord($key1, $key2){
     $values: ();
 
     @for $i from 0 to list.length($spacer){
-        $value: if-else($key1 == '',
-        get-or-others(
-            config("padding", #{$i}),
-            config("spacing", #{$i}),
-            list.nth($spacer, $i + 1)
-        ),
-        get-or-others(
-            config("padding", $key1, #{$i}),
-            config("spacing", $key2, #{$i}),
-            config("spacing", #{$i}),
-            list.nth($spacer, $i + 1)
-        ));
-        $values: map.set($values, #{$i}, $value $value);
+        $values: map.set($values, #{$i}, var(--padding-#{$key1}-#{$i}) var(--padding-#{$key2}-#{$i}));
+    }
+
+    @return $values;
+}
+
+@function get-padding(){
+    $values: ();
+
+    @for $i from 0 to list.length($spacer){
+        $values: map.set($values, #{$i}, var(--padding-top-#{$i}) var(--padding-right-#{$i}) var(--padding-bottom-#{$i}) var(--padding-left-#{$i}));
     }
 
     @return $values;
@@ -53,48 +46,104 @@
         important: get-or-others(config("padding", "important"), true),
         responsive: get-or-others(config("padding", "responsive"), true),
         css: padding,
-        values: get-paddings()
+        var: --padding,
+        values: get-padding()
     ),
     padding-x: (
         name: "px",
-        important: get-or-others(config("padding", "x", "important"), true),
-        responsive: get-or-others(config("padding", "x", "responsive"), true),
+        important: get-or-others(
+            config("padding", "x", "important"),
+            config("padding", "important") 
+            true
+        ),
+        responsive: get-or-others(
+            config("padding", "x", "responsive"),
+            config("padding", "responsive"), 
+            true
+        ),
         css: padding-left padding-right,
-        values: get-paddings-binary("x", "x")
+        values: get-padding-coord("left", "right")
     ),
     padding-y: (
         name: "py",
-        important: get-or-others(config("padding", "y", "important"), true),
-        responsive: get-or-others(config("padding", "y", "responsive"), true),
+        responsive: get-or-others(
+            config("padding", "y", "responsive"),
+            config("padding", "responsive"),
+            true
+        ),
         css: padding-top padding-bottom,
-        values: get-paddings-binary("y", "y")
+        values: get-padding-coord("top", "bottom")
     ),
     padding-top: (
         name: "pt",
-        important: get-or-others(config("padding", "top", "important"), true),
-        responsive: get-or-others(config("padding", "top", "responsive"), true),
+        important: get-or-others(
+            config("padding", "top", "important"),
+            config("padding", "y", "important"),
+            config("padding", "important"),
+            true
+        ),
+        responsive: get-or-others(
+            config("padding", "top", "responsive"), 
+            config("padding", "y", "responsive"),
+            config("padding", "responsive")
+            true
+        ),
         css: padding-top,
-        values: get-paddings("top", "y")
+        var: --padding-top,
+        values: get-padding-sole("top", "y")
     ),
     padding-bottom: (
         name: "pb",
-        important: get-or-others(config("padding", "bottom", "important"), true),
-        responsive: get-or-others(config("padding", "bottom", "responsive"), true),
+        important: get-or-others(
+            config("padding", "bottom", "important"), 
+            config("padding", "y", "important"),
+            config("padding", "important"),
+            true
+        ),
+        responsive: get-or-others(
+            config("padding", "bottom", "responsive"),
+            config("padding", "y", "responsive"),
+            config("padding", "responsive")
+            true
+        ),
         css: padding-bottom,
-        values: get-paddings("bottom", "y")
+        var: --padding-bottom,
+        values: get-padding-sole("bottom", "y")
     ),
     padding-left: (
         name: "pl",
-        important: get-or-others(config("padding", "left", "important"), true),
-        responsive: get-or-others(config("padding", "left", "responsive"), true),
+        important: get-or-others(
+            config("padding", "left", "important"),
+            config("padding", "x", "important")
+            config("padding", "important")
+            true
+        ),
+        responsive: get-or-others(
+            config("padding", "left", "responsive"),
+            config("padding", "x", "responsive"),
+            config("padding", "responsive") 
+            true
+        ),
         css: padding-left,
-        values: get-paddings("left", "x")
+        var: --padding-left,
+        values: get-padding-sole("left", "x")
     ),
     padding-right: (
         name: "pr",
-        important: get-or-others(config("padding", "right", "important"), true),
-        responsive: get-or-others(config("padding", "right", "responsive"), true),
+        important: get-or-others(
+            config("padding", "right", "important"),
+            config("padding", "x", "important"),
+            config("padding", "important") 
+            true
+        ),
+        responsive: get-or-others(
+            config("padding", "right", "responsive"), 
+            config("padding", "x", "responsive"),
+            config("padding", "responsive")
+            true
+        ),
         css: padding-right,
-        values: get-paddings("right", "x")
+        var: --padding-right,
+        values: get-padding-sole("right", "x")
     )
 ));

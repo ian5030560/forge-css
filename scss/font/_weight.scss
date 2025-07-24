@@ -5,6 +5,7 @@
         important: get-or-others(config("font", "weight", "important"), true),
         responsive: get-or-others(config("font", "weight", "responsive"), true),
         css: font-weight,
+        var: --font-weight,
         values: (
             "lighter": get-or-others(config("font", "weight", "lighter"), 200),
             "light": get-or-others(config("font", "weight", "light"), 300),

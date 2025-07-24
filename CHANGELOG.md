@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * add 'small'、'normal'、'medium' and 'large' options in 'line-height'.
 ### Removed
 * remove '1' option in 'line-height'.
+* remove 'spacing'
+### Changed
+* change 'gap'-'row' to 'gap'-'x'.
+* change 'gap'-'column' to 'gap'-'y'.
 
 ## [0.0.1] - 2025-07-20
 [0.0.1]: https://github.com/ian5030560/forge-css/releases/tag/v0.0.1
