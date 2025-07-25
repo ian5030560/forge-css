@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 * change 'gap'-'row' to 'gap'-'x'.
 * change 'gap'-'column' to 'gap'-'y'.
+* change 'border' utility name to 'bd'.
 
 ## [0.0.1] - 2025-07-20
 [0.0.1]: https://github.com/ian5030560/forge-css/releases/tag/v0.0.1
