@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     rotate: (
         name: "rotate",
         important: get-or-others(config("rotate", "important"), true),

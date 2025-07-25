@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     white-space: (
         name: "white-space",
         important: get-or-others(config("white-space", "important"), true),

@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     text-wrap: (
         name: "text-wrap",
         important: get-or-others(config("text", "wrap", "important"), true),

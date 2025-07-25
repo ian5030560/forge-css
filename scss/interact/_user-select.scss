@@ -1,5 +1,5 @@
 @use "../util" as *;;
-@include map-properties((
+@include map-utilities((
     user-select: (
         name: "user-select",
         important: get-or-others(config("user-select", "important"), true),

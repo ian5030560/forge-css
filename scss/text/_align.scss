@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     text-align: (
         name: "text-align",
         important: get-or-others(config("text", "align", "important"), true),

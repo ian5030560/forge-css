@@ -40,7 +40,7 @@
     @return $values;
 }
 
-@include map-properties((
+@include map-utilities((
     padding: (
         name: "p",
         important: get-or-others(config("padding", "important"), true),

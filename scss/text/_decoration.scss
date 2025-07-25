@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     text-decoration: (
         name: "text-decorate",
         important: get-or-others(config("text", "decoration", "important"), true),

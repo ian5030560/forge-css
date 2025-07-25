@@ -1,5 +1,5 @@
 @use "./util" as *;;
-@include map-properties((
+@include map-utilities((
     z-index: (
         name: "z-id",
         important: get-or-others(config("z-index", "important"), true),

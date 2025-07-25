@@ -9,7 +9,7 @@ $-values: (
     "100": 100%
 );
 
-@include map-properties((
+@include map-utilities((
     height: (
         name: "h",
         important: get-or-others(config("height", "important"), true),

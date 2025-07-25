@@ -1,5 +1,5 @@
 @use "./util" as *;
-@include map-properties((
+@include map-utilities((
     line-height: (
         name: lh,
         important: get-or-others(config("line-height", "important"), true),

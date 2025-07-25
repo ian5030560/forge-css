@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     pointer-events: (
         name: "pe",
         important: get-or-others(config("pointer-events", "important"), true),

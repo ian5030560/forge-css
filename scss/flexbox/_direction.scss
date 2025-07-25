@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     flex-direction: (
         name: "flex-dir",
         important: get-or-others(config("flex", "direction", "important"), true),

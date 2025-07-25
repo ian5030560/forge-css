@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     flex-shrink: (
         name: "flex-shrink",
         important: get-or-others(config("flex", "shrink", "important"), true),

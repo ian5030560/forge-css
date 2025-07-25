@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     text-transform: (
         name: "text-transform",
         important: get-or-others(config("text", "transform", "important"), true),

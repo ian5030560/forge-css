@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     text-truncation: (
         name: "text-truncate",
         important: get-or-others(config("text", "truncation", "important"), true),

@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     justify-content: (
         name: "justify-content",
         important: get-or-others(config("justify-content", "important"), true),

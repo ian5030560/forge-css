@@ -1,0 +1,96 @@
+@use "../util" as *;
+
+// @function make-border($key: ""){
+//     $values: ("none": none);
+
+//     @for $i from 1 through 5{
+//         $values: map.set($values, #{$i},
+//         #{if-else(
+//             $key == "",
+//             get-or-others(
+//                 config("border", #{$i}),
+//                 #{$i + "px"}
+//             ),
+//             get-or-others(
+//                 config("border", $key, #{$i}),
+//                 #{$i + "px"}
+//             )
+//         ) + " solid currentcolor"});
+//     }
+
+//     @return $values;
+// }
+
+// @include map-utilities((
+//     border-width: (
+//         name: "bd-width",
+//         important: get-or-others(config("border", "important"), true),
+//         responsive: get-or-others(config("border", "responsive"), false),
+//         css: border,
+//         values: make-border()
+//     ),
+//     border-top: (
+//         name: "bd-top-width",
+//         important: get-or-others(
+//             config("border", "top", "important"), 
+//             config("border", "important")
+//             true
+//         ),
+//         responsive: get-or-others(
+//             config("border", "top", "responsive"),
+//             config("border", "responsive"),
+//             false
+//         ),
+//         css: border-top,
+//         var: --border-top,
+//         values: make-border("top")
+//     ),
+//     border-left: (
+//         name: "bd-left-width",
+//         important: get-or-others(
+//             config("border", "left", "important"),
+//             config("border", "important"),
+//             true
+//         ),
+//         responsive: get-or-others(
+//             config("border", "left", "responsive"),
+//             config("border", "responsive"),
+//             false
+//         ),
+//         css: border-left,
+//         var: --border-left,
+//         values: make-border("left")
+//     ),
+//     border-bottom: (
+//         name: "bd-bottom-width",
+//         important: get-or-others(
+//             config("border", "bottom", "important"),
+//             config("border", "important"),
+//             true
+//         ),
+//         responsive: get-or-others(
+//             config("border", "bottom", "responsive"),
+//             config("border", "responsive")
+//             false
+//         ),
+//         css: border-bottom,
+//         var: --border-bottom,
+//         values: make-border("bottom")
+//     ),
+//     border-right: (
+//         name: "bd-right-width",
+//         important: get-or-others(
+//             config("border", "right", "important"),
+//             config("border", "important"),
+//             true
+//         ),
+//         responsive: get-or-others(
+//             config("border", "right", "responsive"),
+//             config("border", "responsive"),
+//             false
+//         ),
+//         css: border-right,
+//         var: --border-right,
+//         values: make-border("right")
+//     )
+// ));

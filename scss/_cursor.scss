@@ -1,5 +1,5 @@
 @use "./util" as *;
-@include map-properties((
+@include map-utilities((
     cursor: (
         name: "cursor",
         important: get-or-others(config("cursor", "important"), true),

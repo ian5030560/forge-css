@@ -29,7 +29,7 @@
     @return $values;
 }
 
-@include map-properties((
+@include map-utilities((
     gap: (
         name: "gap",
         important: get-or-others(config("gap", "important"), true),
@@ -56,7 +56,7 @@
         values: get-gap-coord("x")
     ),
 
-    column-gap: (
+    gap-y: (
         name: "gap-y",
         important: get-or-others(
             config("gap", "y", "important"),

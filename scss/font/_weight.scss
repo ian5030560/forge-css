@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     font-weight: (
         name: "font-weight",
         important: get-or-others(config("font", "weight", "important"), true),

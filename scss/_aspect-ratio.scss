@@ -1,5 +1,5 @@
 @use "./util" as *;
-@include map-properties((
+@include map-utilities((
     aspect-ratio: (
         name: "aspect-ratio",
         important: get-or-others(config("aspect-ratio", "important"), true),

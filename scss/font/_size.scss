@@ -1,5 +1,5 @@
 @use "util" as *;
-@include map-properties((
+@include map-utilities((
     font-size: (
         name: "font-size",
         important: get-or-others(config("font", "size", "important"), true),

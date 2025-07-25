@@ -1,0 +1,23 @@
+@use "../util" as *;
+@use "sass:map";
+@include map-utilities((
+    border-radius: (
+        name: "bd-radius",
+        responsive: get-or-others(
+            config("border", "radius", "responsive"),
+            config("border", "responsive"),
+            false
+        ),
+        important: get-or-others(
+            config("border", "radius", "important"),
+            config("border", "important"),
+            true
+        ),
+        css: border-radius,
+        values: (
+            "square": 0%,
+            "rounded": 10%,
+            "circle": 50%
+        )
+    )
+));

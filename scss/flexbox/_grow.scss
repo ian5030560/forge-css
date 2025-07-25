@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     flex-grow: (
         name: "flex-grow",
         important: get-or-others(config("flex", "grow", "important"), true),

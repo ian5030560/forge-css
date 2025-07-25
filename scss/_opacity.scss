@@ -1,5 +1,5 @@
 @use "./util" as *;;
-@include map-properties((
+@include map-utilities((
     opacity: (
         name: "opacity",
         important: get-or-others(config("opacity", "important"), true),

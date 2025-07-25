@@ -135,13 +135,13 @@
     @return $new-values;
 }
 
-@mixin -make-property-mixin($property){
-    $name: map.get($property, "name");
-    $important: get-or-others(map.get($property, "important"), true);
-    $responsive: get-or-others(map.get($property, "responsive"), true);
-    $values: map.get($property, "values");
-    $css: map.get($property, "css");
-    $var: map.get($property, "var");
+@mixin -make-utility-mixin($utility){
+    $name: map.get($utility, "name");
+    $important: get-or-others(map.get($utility, "important"), true);
+    $responsive: get-or-others(map.get($utility, "responsive"), true);
+    $values: map.get($utility, "values");
+    $css: map.get($utility, "css");
+    $var: map.get($utility, "var");
 
     @if $var != null{
         @include -make-variables($var, $values);
@@ -159,7 +159,7 @@
 /* format: name[-rwd][-value]; */
 
 /* 
-* type Property{
+* type Utility{
 *  important: boolean = true
 *  responsive: boolean = true
 *  name: string
@@ -169,18 +169,18 @@
 */
 
 /*
-* map and apply class names of properties
-* @param property-map: map<Property>
+* map and apply class names of utility
+* @param utility-map: map<Utility>
 */
-@mixin map-properties($property-map){
-    @each $key in map.keys($property-map){
+@mixin map-utilities($utility-map){
+    @each $key in map.keys($utility-map){
         @debug $key;
-        @include -make-property-mixin(map.get($property-map, $key));
+        @include -make-utility-mixin(map.get($utility-map, $key));
     }
 }
 
 /*
-* use it when property has only default.
+* use it when utility has only default.
 * @param $value: string | list<string>
 * @return map
 **/

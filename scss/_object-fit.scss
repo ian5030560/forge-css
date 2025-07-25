@@ -1,5 +1,5 @@
 @use "./util" as *;;
-@include map-properties((
+@include map-utilities((
     object-fit: (
         name: "object-fit",
         important: get-or-others(config("object-fit", "important"), true),

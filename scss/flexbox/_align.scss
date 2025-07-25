@@ -9,7 +9,7 @@ $-values: (
     right: right
 );
 
-@include map-properties((
+@include map-utilities((
     align-items:(
         name: "align-items",
         important: get-or-others(config("align-items", "important"), true),

@@ -1,5 +1,5 @@
 @use "../util" as *;
-@include map-properties((
+@include map-utilities((
     translate: (
         name: "translate",
         important: get-or-others(config("transform", "translate", "important"), true),
