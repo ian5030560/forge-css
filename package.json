@@ -27,7 +27,7 @@
     "bootstrap-like"
   ],
   "author": "ian1114",
-  "license": "ISC",
+  "license": "MIT",
   "description": "A css tool to build utility css from scss files prepared",
   "devDependencies": {
     "@eslint/js": "^9.30.0",
