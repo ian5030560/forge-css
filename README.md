@@ -25,3 +25,5 @@ npx forge -o output.css -c forgecss.config.json
 
 ## Documentation
 preparing...
+
+## [Changelog](./CHANGELOG.md)

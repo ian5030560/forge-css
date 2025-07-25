@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0]: 2025-07-25
+[0.1.0]: https://github.com/ian5030560/forge-css/releases/tag/v0.1.0
 ### Added
 * add css variables of some utility css.
 * add 'small'、'normal'、'medium' and 'large' options in 'line-height'.
