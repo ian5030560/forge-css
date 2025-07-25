@@ -89,12 +89,10 @@
     }
 }
 
-/*
-* get value by ethier main value or other values
-* @param $main: any
-* @param $others: list<any>
-* @return any
-**/
+// get value by ethier main value or other values
+// @param $main: any
+// @param $others: list<any>
+// @return any
 @function get-or-others($main, $others...){
     @if $main != null{
         @return $main;
@@ -156,22 +154,18 @@
     }
 }
 
-/* format: name[-rwd][-value]; */
+// format: name[-rwd][-value]
 
-/* 
-* type Utility{
-*  important: boolean = true
-*  responsive: boolean = true
-*  name: string
-*  css: string | list<string> // seperate with space
-*  values: map<string, string | list<string>> // seperate with space
-* }
-*/
+// type Utility{
+//  important: boolean = true
+//  responsive: boolean = true
+//  name: string
+//  css: string | list<string> // seperate with space
+//  values: map<string, string | list<string>> // seperate with space
+// }
 
-/*
-* map and apply class names of utility
-* @param utility-map: map<Utility>
-*/
+// map and apply class names of utility
+// @param utility-map: map<Utility>
 @mixin map-utilities($utility-map){
     @each $key in map.keys($utility-map){
         @debug $key;
@@ -179,26 +173,43 @@
     }
 }
 
-/*
-* use it when utility has only default.
-* @param $value: string | list<string>
-* @return map
-**/
+// use it when utility has only default.
+// @param $value: string | list<string>
+// @return map
 @function only-default($value){
     @return ('': $value);
 }
 
-/**
-* support ternary statements
-* @param $bool: boolean
-* @param $value1: any
-* @param $value2: any
-* @return any
-*/
+// support ternary statements
+// @param $bool: boolean
+// @param $value1: any
+// @param $value2: any
+// @return any
 @function if-else($bool, $value1, $value2){
     @if $bool{
         @return $value1;
     } @else{
         @return $value2;
+    }
+}
+
+// create a map that each key starts with prefix
+@function make-prefix-map($prefix, $value-map){
+    $new-map: ();
+
+    @each $key, $value in $value-map{
+        $new-map: map.set($new-map, #{$prefix}-#{$key}, $value);
+    }
+
+    @return $new-map;
+}
+
+// map and apply root variables.
+// @param $var-map: map<string | number, string | number | color | calculation>
+@mixin map-root-vars($var-map){
+    :root{
+        @each $key, $value in $var-map{
+            #{$key}: #{$value};
+        }
     }
 }

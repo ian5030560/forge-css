@@ -1,96 +1,134 @@
 @use "../util" as *;
+@use "sass:map";
 
-// @function make-border($key: ""){
-//     $values: ("none": none);
+@function -make-values-sole($key){
+    $values: ();
 
-//     @for $i from 1 through 5{
-//         $values: map.set($values, #{$i},
-//         #{if-else(
-//             $key == "",
-//             get-or-others(
-//                 config("border", #{$i}),
-//                 #{$i + "px"}
-//             ),
-//             get-or-others(
-//                 config("border", $key, #{$i}),
-//                 #{$i + "px"}
-//             )
-//         ) + " solid currentcolor"});
-//     }
+    @for $i from 1 through 5{
+        $values: map.set($values, #{$i}, 
+            get-or-others(
+                config("border", $key, #{$i}),
+                config("border", #{$i}),
+                #{$i}px
+            )
+        );
+    }
 
-//     @return $values;
-// }
+    @return $values;
+}
 
-// @include map-utilities((
-//     border-width: (
-//         name: "bd-width",
-//         important: get-or-others(config("border", "important"), true),
-//         responsive: get-or-others(config("border", "responsive"), false),
-//         css: border,
-//         values: make-border()
-//     ),
-//     border-top: (
-//         name: "bd-top-width",
-//         important: get-or-others(
-//             config("border", "top", "important"), 
-//             config("border", "important")
-//             true
-//         ),
-//         responsive: get-or-others(
-//             config("border", "top", "responsive"),
-//             config("border", "responsive"),
-//             false
-//         ),
-//         css: border-top,
-//         var: --border-top,
-//         values: make-border("top")
-//     ),
-//     border-left: (
-//         name: "bd-left-width",
-//         important: get-or-others(
-//             config("border", "left", "important"),
-//             config("border", "important"),
-//             true
-//         ),
-//         responsive: get-or-others(
-//             config("border", "left", "responsive"),
-//             config("border", "responsive"),
-//             false
-//         ),
-//         css: border-left,
-//         var: --border-left,
-//         values: make-border("left")
-//     ),
-//     border-bottom: (
-//         name: "bd-bottom-width",
-//         important: get-or-others(
-//             config("border", "bottom", "important"),
-//             config("border", "important"),
-//             true
-//         ),
-//         responsive: get-or-others(
-//             config("border", "bottom", "responsive"),
-//             config("border", "responsive")
-//             false
-//         ),
-//         css: border-bottom,
-//         var: --border-bottom,
-//         values: make-border("bottom")
-//     ),
-//     border-right: (
-//         name: "bd-right-width",
-//         important: get-or-others(
-//             config("border", "right", "important"),
-//             config("border", "important"),
-//             true
-//         ),
-//         responsive: get-or-others(
-//             config("border", "right", "responsive"),
-//             config("border", "responsive"),
-//             false
-//         ),
-//         css: border-right,
-//         var: --border-right,
-//         values: make-border("right")
-//     )
-// ));
+$-top-values: make-prefix-map(--border-top, -make-values-sole("top"));
+$-left-values: make-prefix-map(--border-left, -make-values-sole("left"));
+$-bottom-values: make-prefix-map(--border-bottom, -make-values-sole("bottom"));
+$-right-values: make-prefix-map(--border-right, -make-values-sole("right"));
+
+@function -make-values(){
+    $values: ();
+
+    @for $i from 1 through 5{
+        $values: map.set($values, #{$i}, var(--border-top-#{$i}) var(--border-right-#{$i}) var(--border-bottom-#{$i}) var(--border-left-#{$i}));
+    }
+
+    @return $values;
+}
+
+$-values: make-prefix-map(--border, -make-values());
+
+@include map-root-vars(
+    map.merge($-top-values, 
+        map.merge($-left-values, 
+            map.merge($-bottom-values, 
+                map.merge($-right-values, $-values)
+        )
+    ))
+);
+
+@function -make-border-sole($key){
+    $values: ("0": 0px solid currentcolor);
+
+    @for $i from 1 through 5{
+        $values: map.set($values, #{$i}, var(--border-#{$key}-#{$i}) solid currentcolor);
+    }
+
+    @return $values;
+}
+
+@function -make-border(){
+    $values: ();
+
+    @for $i from 1 through 5{
+        $values: map.set($values, #{$i}, "solid currentcolor" var(--border-#{$i}));
+    }
+
+    @return $values;
+}
+
+@include map-utilities((
+    border-width: (
+        name: "bd",
+        important: get-or-others(config("border", "important"), true),
+        responsive: get-or-others(config("border", "responsive"), false),
+        css: border border-width,
+        values: -make-border()
+    ),
+    border-top: (
+        name: "bd-top",
+        important: get-or-others(
+            config("border", "top", "important"), 
+            config("border", "important")
+            true
+        ),
+        responsive: get-or-others(
+            config("border", "top", "responsive"),
+            config("border", "responsive"),
+            false
+        ),
+        css: border-top,
+        values: -make-border-sole("top")
+    ),
+    border-left: (
+        name: "bd-left",
+        important: get-or-others(
+            config("border", "left", "important"),
+            config("border", "important"),
+            true
+        ),
+        responsive: get-or-others(
+            config("border", "left", "responsive"),
+            config("border", "responsive"),
+            false
+        ),
+        css: border-left,
+        values: -make-border-sole("left")
+    ),
+    border-bottom: (
+        name: "bd-bottom",
+        important: get-or-others(
+            config("border", "bottom", "important"),
+            config("border", "important"),
+            true
+        ),
+        responsive: get-or-others(
+            config("border", "bottom", "responsive"),
+            config("border", "responsive")
+            false
+        ),
+        css: border-bottom,
+        values: -make-border-sole("bottom")
+    ),
+    border-right: (
+        name: "bd-right",
+        important: get-or-others(
+            config("border", "right", "important"),
+            config("border", "important"),
+            true
+        ),
+        responsive: get-or-others(
+            config("border", "right", "responsive"),
+            config("border", "responsive"),
+            false
+        ),
+        css: border-right,
+        values: -make-border-sole("right")
+    )
+));
