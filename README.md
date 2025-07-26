@@ -1,4 +1,4 @@
-# Forge-css
+# forge-css
 A css tool to build utility css from scss files prepared.
 
 ## Installation
