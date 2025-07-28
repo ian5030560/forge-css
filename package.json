@@ -18,6 +18,7 @@
     "lint:fix": "eslint --fix",
     "style-lint": "npx stylelint sass/**/*",
     "dev": "tsx src/cli.ts -o output.css",
+    "dev:docs": "npm run dev --prefix docs",
     "prod": "npm link && forge -o output.css",
     "clean": "node scripts/clean.js"
   },
