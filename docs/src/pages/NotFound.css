@@ -1,0 +1,11 @@
+.not-found{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-larger);
+    font-weight: var(--font-weight-bolder);
+    color: var(--gray-11); 
+    -webkit-user-select: none;
+    user-select: none;
+}

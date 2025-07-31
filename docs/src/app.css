@@ -140,4 +140,5 @@ body {
     'Open Sans',
     'Helvetica Neue',
     sans-serif;
+	overflow-y: auto;
 }

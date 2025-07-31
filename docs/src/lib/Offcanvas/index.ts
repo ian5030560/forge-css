@@ -1,11 +1,13 @@
 import Content, { type ContentProps } from "./Content.svelte";
-import Root, { type RootProps } from "./Root.svelte";
-import Trigger, { type TriggerProps } from "./Trigger.svelte";
+import { Dialog } from "bits-ui";
 
 export default {
     Content,
-    Root,
-    Trigger
+    Root: Dialog.Root,
+    Trigger: Dialog.Trigger
 };
+
+type RootProps = Dialog.RootProps;
+type TriggerProps = Dialog.TriggerProps;
 
 export type { ContentProps, RootProps, TriggerProps };

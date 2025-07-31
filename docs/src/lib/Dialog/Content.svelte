@@ -1,14 +1,14 @@
 <script lang="ts">
     import { Dialog } from "bits-ui";
-    import type { Snippet } from "svelte";
     import Overlay from "../Overlay.svelte";
     import Seperator from "../Seperator.svelte";
+    import type { Snippet } from "svelte";
     import { CloseButton } from "../Button";
     import Title from "../Title.svelte";
     import "./Content.css";
     
     export interface ContentProps {
-        title: string;
+        title?: string;
         children: Snippet;
     }
 
@@ -19,9 +19,10 @@
     <Dialog.Overlay>
         {#snippet child({ props })}<Overlay {...props} />{/snippet}
     </Dialog.Overlay>
+
     <Dialog.Content>
         {#snippet child({ props })}
-            <div {...props} class="canvas-content">
+            <div {...props} class="dialog-content">
                 <Dialog.Title class="d-flex justify-content-space-between align-items-center">
                     {#if title}
                         <Title type={4} class="user-select-none">{title}</Title>

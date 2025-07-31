@@ -1,0 +1,12 @@
+.dialog-content {
+    padding: var(--padding-2);
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--gray-2);
+    gap: var(--gap-1);
+}

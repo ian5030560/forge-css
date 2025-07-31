@@ -1,0 +1,19 @@
+.code-block-board{
+    background-color: var(--gray-3);
+    position: relative;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+}
+
+.code-block-copy{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--gray-11);
+}
+
+.code-block-copy[data-copied]{
+    color: var(--green-9);
+}

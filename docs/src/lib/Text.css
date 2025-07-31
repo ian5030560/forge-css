@@ -1,0 +1,12 @@
+.text{
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-normal);
+}
+
+.text[data-text-contrast='low']{
+    color: var(--gray-11);
+}
+
+.text[data-text-contrast='high']{
+    color: var(--gray-12);
+}

@@ -1,13 +1,27 @@
 <script lang="ts">
-    import Layout from "./lib/Layout.svelte";
-
-    // import {Router, type RouteConfig} from "@mateothegreat/svelte5-router";
-    
-    // const routes: RouteConfig[] = [];
+    import Layout from "./Layout.svelte";
+    import { Router } from "@mateothegreat/svelte5-router";
+    import NotFound from "./pages/NotFound.svelte";
+    import Intrduction from "./pages/main/Intrduction.svelte";
+    import Download from "./pages/main/Download.svelte";
 </script>
 
-<!-- <Router routes={routes}/> -->
-
 <Layout>
-    <div></div>
+    <Router
+        routes={[
+            {
+                path: "/",
+                component: Intrduction,
+            },
+            {
+                path: "/download",
+                component: Download,
+            },
+            {
+                path: "404",
+                component: NotFound,
+                status: 404,
+            },
+        ]}
+    />
 </Layout>

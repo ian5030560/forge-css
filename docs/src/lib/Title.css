@@ -1,0 +1,33 @@
+.title-1, .title-2, .title-3, .title-4, .title-5, .title-6{
+    color: var(--gray-12);
+}
+
+.title-1{
+    font-size: var(--font-size-xlarge);
+    font-weight: var(--font-weight-bolder);
+}
+
+.title-2{
+    font-size: var(--font-size-larger);
+    font-weight: var(--font-weight-bolder);
+}
+
+.title-3{
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bolder);
+}
+
+.title-4{
+    font-size: var(--font-size-median);
+    font-weight: var(--font-weight-bold);
+}
+
+.title-5{
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-bold);
+}
+
+.title-6{
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+}

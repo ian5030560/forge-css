@@ -1,11 +1,13 @@
 <script lang="ts">
     import type { Snippet } from "svelte";
     import SearchBox from "./SearchBox.svelte";
-    import Button from "./Button.svelte";
-    import { Github, Menu, Moon, Sun, TableOfContents } from "@lucide/svelte";
+    import { MediaQuery } from "svelte/reactivity";
+    import { Menu, Github, Moon, Sun } from "@lucide/svelte";
+    import Offcanvas from "./lib/Offcanvas";
+    import Button from "./lib/Button";
     import Navigation from "./Navigation.svelte";
-    import Offcanvas from "./Offcanvas";
-    import mediaQuery from "./mediaQuery.svelte";
+    import "./Layout.css";
+    import Title from "./lib/Title.svelte";
 
     interface LayoutProps {
         children: Snippet;
@@ -13,7 +15,8 @@
     const { children }: LayoutProps = $props();
 
     let isDark = $state(false);
-    let showOffcanvas = mediaQuery("(width < 576px)");
+    const md = new MediaQuery("(width <= 768px)");
+    let showOffcanvas = $derived(md.current);
 
     const toggleTheme = () => {
         isDark = !isDark;
@@ -40,7 +43,7 @@
                         {/snippet}
                     </Offcanvas.Trigger>
                 {/if}
-                <span class="docs-logo-text">forge-css</span>
+                <Title type={3} class="user-select-none">forge-css</Title>
             </div>
             <div class="hstack align-items-center gap-1">
                 <SearchBox />
@@ -48,14 +51,11 @@
                     tag="a"
                     buttonType="text"
                     href="https://github.com/ian5030560/forge-css"
-                    ><Github /></Button
-                >
+                    ><Github />
+                </Button>
                 <Button buttonType="text" onclick={toggleTheme}>
                     {#if isDark}<Moon />{:else}<Sun />{/if}
                 </Button>
-                <!-- <Button buttonType="text">
-                    <TableOfContents />
-                </Button> -->
             </div>
         </div>
         <main class="docs-body">
@@ -70,33 +70,3 @@
         </main>
     </div>
 </Offcanvas.Root>
-
-<style>
-    .docs-container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        background-color: var(--gray-1);
-    }
-
-    .docs-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: var(--gray-2);
-        padding: var(--padding-2);
-    }
-
-    .docs-body {
-        display: flex;
-        flex: 1;
-        overflow-y: auto;
-    }
-
-    .docs-logo-text {
-        font-weight: var(--font-weight-bolder);
-        font-size: var(--font-size-large);
-        color: var(--gray-12);
-        user-select: none;
-    }
-</style>
