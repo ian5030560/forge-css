@@ -6,7 +6,7 @@ import hljs from 'highlight.js'
 import javascript from "highlight.js/lib/languages/javascript"
 import json from "highlight.js/lib/languages/json"
 import bash from "highlight.js/lib/languages/bash"
-import "highlight.js/styles/github.css";
+import "highlight.js/styles/atom-one-dark.css";
 
 hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('json', json)

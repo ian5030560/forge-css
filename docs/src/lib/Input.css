@@ -1,4 +1,4 @@
-.input {
+.input{
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-normal);
     background-color: var(--gray-2);
@@ -8,10 +8,14 @@
     padding: var(--padding-1);
 }
 
-.input:focus {
+.input:focus{
     outline: 2px solid var(--orange-9);
 }
 
 .input::placeholder{
     filter: opacity(0.7);
+}
+
+.input:disabled{
+    background-color: var(--gray-3);
 }

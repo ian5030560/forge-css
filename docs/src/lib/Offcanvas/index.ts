@@ -5,7 +5,7 @@ export default {
     Content,
     Root: Dialog.Root,
     Trigger: Dialog.Trigger
-};
+} as const;
 
 type RootProps = Dialog.RootProps;
 type TriggerProps = Dialog.TriggerProps;

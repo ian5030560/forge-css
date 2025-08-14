@@ -1,0 +1,14 @@
+.table-cell{
+    padding: var(--padding-2);
+    color: var(--gray-12);
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-normal);
+}
+
+.table-cell:not([scope="col"]){
+    border: 2px solid var(--gray-3);
+}
+
+.table-cell[scope]{
+    font-weight: var(--font-weight-bold);
+}

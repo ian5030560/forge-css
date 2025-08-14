@@ -17,3 +17,12 @@
 .code-block-copy[data-copied]{
     color: var(--green-9);
 }
+
+.code-block-text{
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-normal);
+    font-family: monospace;
+    white-space: pre;
+    color: var(--gray-11);
+    overflow: auto;
+}

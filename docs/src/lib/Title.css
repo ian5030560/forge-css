@@ -1,4 +1,12 @@
 .title-1, .title-2, .title-3, .title-4, .title-5, .title-6{
+    display: block;
+}
+
+:where(.title-1, .title-2, .title-3, .title-4, .title-5, .title-6)[data-text-contrast='low']{
+    color: var(--gray-11);
+}
+
+:where(.title-1, .title-2, .title-3, .title-4, .title-5, .title-6)[data-text-contrast='high']{
     color: var(--gray-12);
 }
 

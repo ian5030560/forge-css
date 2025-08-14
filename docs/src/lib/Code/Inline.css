@@ -1,3 +1,6 @@
-.code-inline{
+.code-inline-text{
     background-color: var(--gray-3);
+    height: fit-content;
+    border-radius: calc(var(--radius) / 4);
+    font-family: monospace;
 }

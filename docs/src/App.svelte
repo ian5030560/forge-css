@@ -1,9 +1,10 @@
 <script lang="ts">
     import Layout from "./Layout.svelte";
     import { Router } from "@mateothegreat/svelte5-router";
-    import NotFound from "./pages/NotFound.svelte";
-    import Intrduction from "./pages/main/Intrduction.svelte";
-    import Download from "./pages/main/Download.svelte";
+
+    function createAsyncComponent(path: string) {
+        return async () => import(/* @vite-ignore */ path);
+    }
 </script>
 
 <Layout>
@@ -11,15 +12,19 @@
         routes={[
             {
                 path: "/",
-                component: Intrduction,
+                component: createAsyncComponent("./pages/main/Intrduction.svelte"),
             },
             {
                 path: "/download",
-                component: Download,
+                component: createAsyncComponent("./pages/main/Download.svelte"),
+            },
+            {
+                path: "/breakpoints",
+                component: createAsyncComponent("./pages/main/Breakpoints.svelte"),
             },
             {
                 path: "404",
-                component: NotFound,
+                component: createAsyncComponent("./pages/NotFound.svelte"),
                 status: 404,
             },
         ]}

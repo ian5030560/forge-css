@@ -4,6 +4,6 @@ import Inline, { type InlineProps } from "./Inline.svelte";
 export default {
     Block,
     Inline,
-};
+} as const;
 
 export type { Languages, BlockProps, InlineProps };

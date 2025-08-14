@@ -5,7 +5,7 @@ export default {
     Root: BitsDialog.Root,
     Trigger: BitsDialog.Trigger,
     Content
-};
+} as const;
 
 type RootProps = BitsDialog.RootProps;
 type TriggerProps = BitsDialog.TriggerProps;

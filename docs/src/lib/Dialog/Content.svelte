@@ -2,14 +2,13 @@
     import { Dialog } from "bits-ui";
     import Overlay from "../Overlay.svelte";
     import Seperator from "../Seperator.svelte";
-    import type { Snippet } from "svelte";
     import { CloseButton } from "../Button";
     import Title from "../Title.svelte";
     import "./Content.css";
+    import type { WithChildren } from "../WithChildren";
     
-    export interface ContentProps {
+    export interface ContentProps extends WithChildren{
         title?: string;
-        children: Snippet;
     }
 
     let { title, children }: ContentProps = $props();

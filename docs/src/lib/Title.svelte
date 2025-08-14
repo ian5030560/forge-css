@@ -1,15 +1,27 @@
 <script lang="ts">
     import type { HTMLAttributes } from "svelte/elements";
     import "./Title.css";
+    import type { Contrast } from "./Text.svelte";
 
     export type TitleType = 1 | 2 | 3 | 4 | 5 | 6;
-    export interface TitleProps extends HTMLAttributes<HTMLElement>{
+    export interface TitleProps extends HTMLAttributes<HTMLElement> {
         type: TitleType;
+        contrast?: Contrast;
     }
 
-    const {class: otherClass, type, children, ...props}: TitleProps = $props();
+    const {
+        class: otherClass,
+        type,
+        children,
+        contrast = "high",
+        ...props
+    }: TitleProps = $props();
 </script>
 
-<span class={[`title-${type}`, otherClass]} {...props}>
+<span
+    class={[`title-${type}`, otherClass]}
+    data-text-contrast={contrast}
+    {...props}
+>
     {@render children?.()}
 </span>

@@ -1,4 +1,5 @@
 <script lang="ts">
+    import type { Action } from "svelte/action";
     import Title from "./lib/Title.svelte";
     import "./Navigation.css";
 
@@ -68,17 +69,31 @@
             ],
         },
     ];
+
+    const isActive: Action<HTMLElement, string> = (node, path) => {
+        const active = window.location.pathname === path;
+        if (active) {
+            node.classList.add("active");
+        }
+        else{
+            node.classList.remove("active");
+        }
+    }
 </script>
 
 {#snippet navigateContent()}
-    <ol class="nav-list px-3 pt-4 overflow-y-auto">
+    <ol class="nav-list px-3 pt-3 pb-1 h-100 overflow-auto m-0">
         {#each listData as data}
             <li class="vstack">
-                <Title type={5}>{data.title}</Title>
+                <Title type={5} class="user-select-none text-truncate"
+                    >{data.title}</Title
+                >
                 <ol class="nav-nest-list">
                     {#each data.items as item}
-                        <li class="nav-nest-list-item text-truncate">
-                            {item.title}
+                        <li class="nav-nest-list-item" use:isActive={item.path}>
+                            <a class="text-truncate" href={item.path}>
+                                {item.title}
+                            </a>
                         </li>
                     {/each}
                 </ol>

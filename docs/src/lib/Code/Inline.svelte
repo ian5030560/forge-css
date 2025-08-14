@@ -8,6 +8,6 @@
     const { class: otherClass, children, ...props }: InlineProps = $props();
 </script>
 
-<Text class={["code-inline", "font-monospace", otherClass]} contrast={"low"}>
+<Text class={["code-inline-text", otherClass]} contrast={"low"}>
     {@render children?.()}
 </Text>

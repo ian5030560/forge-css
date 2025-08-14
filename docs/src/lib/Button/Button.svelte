@@ -23,6 +23,7 @@
     this={tag || "button"}
     class={["button", otherClass]}
     data-button-type={buttonType || "primary"}
+    role="button"
     {...restProps}
 >
     {@render children?.()}

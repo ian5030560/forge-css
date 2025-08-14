@@ -4,15 +4,24 @@
     import "./Block.css";
     import Button from "../Button";
     import Text from "../Text.svelte";
+    import type { HTMLAttributes } from "svelte/elements";
 
     export type Languages = "javascript" | "bash" | "html" | "json";
-    export interface BlockProps {
+    export interface BlockProps
+        extends Exclude<HTMLAttributes<HTMLElement>, "children"> {
         title?: string;
         code: string;
         lang?: Languages;
         copyable?: boolean;
     }
-    const { title, code, lang = "html", copyable = true }: BlockProps = $props();
+    const {
+        class: otherClass,
+        title,
+        code,
+        lang = "html",
+        copyable = true,
+        ...props
+    }: BlockProps = $props();
 
     let copied = $state(false);
 
@@ -29,7 +38,7 @@
     const rendered = $derived(hljs.highlight(code, { language: lang }));
 </script>
 
-<div class="code-block-board px-2 py-2">
+<div class={["code-block-board px-2 py-2", otherClass]} {...props}>
     {#if title}
         <Text contrast={"high"}>
             {title}
@@ -37,7 +46,7 @@
     {/if}
     {#if copyable}
         <Button
-            buttonType="text"
+            buttonType="link"
             class="code-block-copy"
             data-copied={!copied ? undefined : true}
             onclick={copy}
@@ -45,5 +54,5 @@
             {#if !copied}<Copy />{:else}<Check />{/if}
         </Button>
     {/if}
-    <Text class="font-monospace white-space-pre">{@html rendered.value}</Text>
+    <code class="code-block-text">{@html rendered.value}</code>
 </div>

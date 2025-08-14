@@ -1,5 +1,4 @@
 <script lang="ts">
-    import type { Snippet } from "svelte";
     import SearchBox from "./SearchBox.svelte";
     import { MediaQuery } from "svelte/reactivity";
     import { Menu, Github, Moon, Sun } from "@lucide/svelte";
@@ -8,31 +7,26 @@
     import Navigation from "./Navigation.svelte";
     import "./Layout.css";
     import Title from "./lib/Title.svelte";
+    import type { WithChildren } from "./lib/WithChildren";
+    import Theme from "./lib/Theme";
+    import SystemTheme from "./systemTheme.svelte";
 
-    interface LayoutProps {
-        children: Snippet;
-    }
+    interface LayoutProps extends WithChildren {}
     const { children }: LayoutProps = $props();
-
-    let isDark = $state(false);
     const md = new MediaQuery("(width <= 768px)");
     let showOffcanvas = $derived(md.current);
 
-    const toggleTheme = () => {
-        isDark = !isDark;
-    };
-
-    $effect(() => {
-        document.body.setAttribute("data-theme", isDark ? "dark" : "light");
-        return () => {
-            document.body.removeAttribute("data-theme");
-        };
-    });
+    const theme = new SystemTheme();
 </script>
 
-<Offcanvas.Root>
-    <div class="docs-container">
-        <div class="docs-header">
+<Theme.Root
+    bind:dark={theme.isDark}
+    onChange={(value) => {
+        theme.isDark = value;
+    }}
+>
+    <Offcanvas.Root>
+        <header class="docs-header d-flex justify-content-space-between align-items-center p-2 position-sticky top-0 left-0">
             <div class="hstack align-items-center gap-2">
                 {#if showOffcanvas}
                     <Offcanvas.Trigger>
@@ -51,22 +45,29 @@
                     tag="a"
                     buttonType="text"
                     href="https://github.com/ian5030560/forge-css"
-                    ><Github />
+                >
+                    <Github />
                 </Button>
-                <Button buttonType="text" onclick={toggleTheme}>
-                    {#if isDark}<Moon />{:else}<Sun />{/if}
-                </Button>
+                <Theme.Trigger>
+                    {#snippet children({ onclick, value })}
+                        <Button buttonType="text" {onclick}>
+                            {#if value}<Moon />{:else}<Sun />{/if}
+                        </Button>
+                    {/snippet}
+                </Theme.Trigger>
             </div>
-        </div>
-        <main class="docs-body">
-            {#if showOffcanvas}
-                <Offcanvas.Content title="Navigation">
-                    <Navigation />
-                </Offcanvas.Content>
-            {:else}
+        </header>
+        {#if showOffcanvas}
+            <Offcanvas.Content title="Navigation">
                 <Navigation />
-            {/if}
+            </Offcanvas.Content>
+        {:else}
+            <aside class="docs-sidebar position-fixed overflow-hidden">
+                <Navigation />
+            </aside>
+        {/if}
+        <main class="docs-content p-4 vstack gap-3">
             {@render children?.()}
         </main>
-    </div>
-</Offcanvas.Root>
+    </Offcanvas.Root>
+</Theme.Root>
