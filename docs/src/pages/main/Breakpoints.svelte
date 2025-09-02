@@ -3,6 +3,7 @@
     import Header from "./Header.svelte";
     import Table from "../../lib/Table";
     import Code from "../../lib/Code";
+    import TableOfContents from "../../lib/TableOfContents";
 
     type BreakPointsData = {
         name: string;
@@ -24,7 +25,7 @@
     description={"The breakpoints determines the responsive layout when the screen width changes acrosss devices."}
 />
 
-<Title type={4}>Available points</Title>
+<TableOfContents.Title linkTag={"available-points"} type={3} content={"Available points"}/>
 <Table.Root>
     {#snippet header()}
         <Table.Row>
@@ -45,7 +46,8 @@
         {/each}
     {/snippet}
 </Table.Root>
-<Title type={4}>Configuration</Title>
+
+<TableOfContents.Title linkTag={"configuration"} type={3} content={"Configuration"}/>
 <Code.Block copyable={false} lang={"json"} code={`
     {
         .....

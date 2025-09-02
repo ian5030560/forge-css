@@ -9,10 +9,13 @@
 
 <Layout>
     <Router
+        renavigation={false}
         routes={[
             {
                 path: "/",
-                component: createAsyncComponent("./pages/main/Intrduction.svelte"),
+                component: createAsyncComponent(
+                    "./pages/main/Intrduction.svelte",
+                ),
             },
             {
                 path: "/download",
@@ -20,7 +23,15 @@
             },
             {
                 path: "/breakpoints",
-                component: createAsyncComponent("./pages/main/Breakpoints.svelte"),
+                component: createAsyncComponent(
+                    "./pages/main/Breakpoints.svelte",
+                ),
+            },
+            {
+                path: "/containers",
+                component: createAsyncComponent(
+                    "./pages/main/Containers.svelte",
+                ),
             },
             {
                 path: "404",

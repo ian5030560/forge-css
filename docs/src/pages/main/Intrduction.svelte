@@ -2,7 +2,7 @@
     import Text from "../../lib/Text.svelte";
     import Header from "./Header.svelte";
     import Code from "../../lib/Code";
-    import Title from "../../lib/Title.svelte";
+    import TableOfContents from "../../lib/TableOfContents";
 </script>
 
 <Header
@@ -10,7 +10,11 @@
     description={"Forge-css is the light-weight css tool for creating utility-css by sass/scss files prepared."}
 />
 
-<Title type={4}>Preparation(Optional)</Title>
+<TableOfContents.Title
+    type={3}
+    content={"Preparation(Optional)"}
+    linkTag="preparation"
+/>
 <Text contrast={"low"}>Prepare a configuration json file for forge-css.</Text>
 <Code.Block
     title="config.json"
@@ -27,7 +31,7 @@
 }`}
 />
 
-<Title type={4}>Command</Title>
+<TableOfContents.Title type={3} content={"Command"} linkTag="command" />
 <Text contrast={"low"}>
     Use 'forge' command to build a utility css file instantly
 </Text>
@@ -46,5 +50,5 @@
         <Text>The configuration of all utility css.(optional)</Text>
     </div>
 </div>
-<Title type={5}>Example</Title>
+<TableOfContents.Title type={4} content={"Example"} linkTag="example" />
 <Code.Block lang="bash" code={"forge -o output.css -c config.json"} />

@@ -1,19 +1,18 @@
 .nav-list {
     list-style: none;
     background-color: var(--gray-2);
-    box-sizing: border-box;
+}
+
+.nav-list > li + li{
+    margin-top: var(--gap-y-1);
 }
 
 .nav-nest-list {
     list-style: none;
-    padding: var(--padding-1);
 }
 
 .nav-nest-list-item {
     border-radius: var(--radius);
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: pointer;
     transition: background-color var(--transition);
 }
 
@@ -25,14 +24,7 @@
     background-color: var(--orange-4);
 }
 
-.nav-nest-list-item + .nav-nest-list-item {
-    margin-top: calc(var(--gap-y-1) / 2);
-}
-
 .nav-nest-list-item > a{
-    width: 100%;
-    display: inline-block;
-    padding: var(--padding-1);
     text-decoration: none;
     color: var(--gray-11);
 }

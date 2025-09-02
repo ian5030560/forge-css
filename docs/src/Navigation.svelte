@@ -85,13 +85,11 @@
     <ol class="nav-list px-3 pt-3 pb-1 h-100 overflow-auto m-0">
         {#each listData as data}
             <li class="vstack">
-                <Title type={5} class="user-select-none text-truncate"
-                    >{data.title}</Title
-                >
-                <ol class="nav-nest-list">
+                <Title type={4} class="user-select-none text-truncate">{data.title}</Title>
+                <ol class="nav-nest-list pl-2">
                     {#each data.items as item}
-                        <li class="nav-nest-list-item" use:isActive={item.path}>
-                            <a class="text-truncate" href={item.path}>
+                        <li class="nav-nest-list-item p-1 mt-1 user-select-none cursor-pointer" use:isActive={item.path}>
+                            <a class="text-truncate w-100 d-inline-block" href={item.path}>
                                 {item.title}
                             </a>
                         </li>

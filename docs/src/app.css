@@ -3,7 +3,6 @@
 :root{
   --radius: 8px;
   --transition: 150ms ease-in-out;
-  --header-height: 78px;
 }
 
 ::selection{

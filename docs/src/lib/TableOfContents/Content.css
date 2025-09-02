@@ -1,0 +1,20 @@
+.table-of-content{
+    background-color: var(--gray-2);
+    border-radius: var(--radius);
+}
+
+.table-of-content-list{
+    list-style: none;
+}
+
+.table-of-content-list > li + li{
+    margin-top: var(--gap-y-1);
+}
+
+.table-of-content-list-item > a{
+    text-decoration: none;
+}
+
+.table-of-content-list-item:hover > a{
+    color: var(--gray-12);
+}

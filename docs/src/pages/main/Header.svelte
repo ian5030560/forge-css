@@ -9,7 +9,7 @@
     const props: HeaderProps = $props();
 </script>
 
-<Title type={3}>{props.title}</Title>
+<Title type={2}>{props.title}</Title>
 <Text class="font-size-median" contrast={"low"}>
     {props.description}
 </Text>
