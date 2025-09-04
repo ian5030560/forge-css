@@ -1,7 +1,13 @@
 <script lang="ts">
     import SearchBox from "./SearchBox.svelte";
     import { MediaQuery } from "svelte/reactivity";
-    import { Menu, Github, Moon, Sun, TableOfContents as TableOfContentsIcon } from "@lucide/svelte";
+    import {
+        Menu,
+        Github,
+        Moon,
+        Sun,
+        TableOfContents as TableOfContentsIcon,
+    } from "@lucide/svelte";
     import Offcanvas from "./lib/Offcanvas";
     import Button from "./lib/Button";
     import Navigation from "./Navigation.svelte";
@@ -12,6 +18,7 @@
     import SystemTheme from "./systemTheme.svelte";
     import TableOfContents from "./lib/TableOfContents";
     import { Popover } from "bits-ui";
+    import Link from "./lib/Link.svelte";
 
     interface LayoutProps extends WithChildren {}
     const { children }: LayoutProps = $props();
@@ -26,12 +33,12 @@
     {#if md}
         <Popover.Portal>
             <Popover.Content customAnchor={headerElement} align="end">
-                <TableOfContents.Content title={"Table of Contents"}/>
+                <TableOfContents.Content title={"Table of Contents"} />
             </Popover.Content>
         </Popover.Portal>
     {:else}
         <aside class="docs-table-of-content position-fixed">
-            <TableOfContents.Content title={"Table of Contents"}/>
+            <TableOfContents.Content title={"Table of Contents"} />
         </aside>
     {/if}
 {/snippet}
@@ -65,7 +72,11 @@
                         {#if md.current}
                             <Offcanvas.Trigger>
                                 {#snippet child({ props })}
-                                    <Button {...props} buttonType="text" class="docs-sidebar-trigger">
+                                    <Button
+                                        {...props}
+                                        variant="text"
+                                        class="docs-sidebar-trigger"
+                                    >
                                         <Menu />
                                     </Button>
                                 {/snippet}
@@ -77,16 +88,17 @@
                     </div>
                     <div class="hstack align-items-center gap-1">
                         <SearchBox />
-                        <Button
-                            tag="a"
-                            buttonType="text"
-                            href="https://github.com/ian5030560/forge-css"
-                        >
-                            <Github />
+
+                        <Button variant="text">
+                            <Link
+                                href="https://github.com/ian5030560/forge-css"
+                            >
+                                <Github />
+                            </Link>
                         </Button>
                         <Theme.Trigger>
                             {#snippet children({ onclick, value })}
-                                <Button buttonType="text" {onclick}>
+                                <Button variant="text" {onclick}>
                                     {#if value}<Moon />{:else}<Sun />{/if}
                                 </Button>
                             {/snippet}
@@ -94,7 +106,7 @@
                         {#if md.current}
                             <Popover.Trigger>
                                 {#snippet child({ props })}
-                                    <Button buttonType="text" {...props}>
+                                    <Button variant="text" {...props}>
                                         <TableOfContentsIcon />
                                     </Button>
                                 {/snippet}

@@ -19,6 +19,10 @@ html, body, #app {
   box-sizing: border-box;
 }
 
+::marker{
+  color: var(--gray-12);
+}
+
 body {
   font-family:
     system-ui,

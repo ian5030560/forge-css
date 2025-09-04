@@ -1,0 +1,16 @@
+.link{
+    text-decoration: none;
+    color: var(--gray-12);
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+[data-theme="light"] .link:active {
+    filter: brightness(1.7);
+}
+
+[data-theme="dark"] .link:active {
+    filter: brightness(0.7);
+}

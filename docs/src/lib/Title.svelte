@@ -10,7 +10,7 @@
     }
 
     const {
-        class: otherClass,
+        class: className,
         type,
         children,
         contrast = "high",
@@ -19,7 +19,7 @@
 </script>
 
 <span
-    class={[`title-${type}`, otherClass]}
+    class={[`title-${type}`, className]}
     data-text-contrast={contrast}
     {...props}
 >

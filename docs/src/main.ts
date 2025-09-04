@@ -1,5 +1,5 @@
 import { mount } from 'svelte'
-import './forge-css.css'
+import './utility.css'
 import './app.css'
 import App from './App.svelte'
 import hljs from 'highlight.js'

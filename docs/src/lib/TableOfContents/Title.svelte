@@ -14,7 +14,7 @@
 
     const context: TableOfContentContext = getContext("table-of-content");
 
-    const { linkTag, content, class: otherClass, ...props }: TitleProps = $props();
+    const { linkTag, content, class: className, ...props }: TitleProps = $props();
     context.join(content, linkTag, props.type);
 </script>
 

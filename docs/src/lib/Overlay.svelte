@@ -2,7 +2,7 @@
     import type { HTMLAttributes } from "svelte/elements";
     import "./Overlay.css";
     
-    const {class: otherClass, ...props}: Exclude<HTMLAttributes<HTMLElement>, "children"> = $props();
+    const {class: className, ...props}: Exclude<HTMLAttributes<HTMLElement>, "children"> = $props();
 </script>
 
-<div {...props} class={["overlay", otherClass]}></div>
+<div {...props} class={["overlay", className]}></div>

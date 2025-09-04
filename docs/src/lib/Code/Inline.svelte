@@ -5,9 +5,9 @@
 
     export type InlineProps = HTMLAttributes<HTMLElement>;
 
-    const { class: otherClass, children, ...props }: InlineProps = $props();
+    const { class: className, children, ...props }: InlineProps = $props();
 </script>
 
-<Text class={["code-inline-text", otherClass]} contrast={"low"}>
+<Text class={["code-inline-text", className]} contrast={"low"}>
     {@render children?.()}
 </Text>

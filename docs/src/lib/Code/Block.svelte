@@ -15,7 +15,7 @@
         copyable?: boolean;
     }
     const {
-        class: otherClass,
+        class: className,
         title,
         code,
         lang = "html",
@@ -38,7 +38,7 @@
     const rendered = $derived(hljs.highlight(code, { language: lang }));
 </script>
 
-<div class={["code-block-board px-2 py-2", otherClass]} {...props}>
+<div class={["code-block-board px-2 py-2", className]} {...props}>
     {#if title}
         <Text contrast={"high"}>
             {title}
@@ -46,7 +46,7 @@
     {/if}
     {#if copyable}
         <Button
-            buttonType="link"
+            variant="text"
             class="code-block-copy"
             data-copied={!copied ? undefined : true}
             onclick={copy}
@@ -54,5 +54,5 @@
             {#if !copied}<Copy />{:else}<Check />{/if}
         </Button>
     {/if}
-    <code class="code-block-text">{@html rendered.value}</code>
+    <code class="code-block-content p-1">{@html rendered.value}</code>
 </div>

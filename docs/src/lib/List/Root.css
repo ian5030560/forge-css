@@ -1,0 +1,17 @@
+.list{
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+.list[data-list-no-headed]{
+    list-style: none;
+}
+
+.list > .list-item + .list-item{
+    margin-top: var(--gap-y-1);
+}
+
+.list .list{
+    padding-left: var(--padding-left-1);
+}

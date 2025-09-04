@@ -4,7 +4,7 @@
 
     export interface InputProps extends HTMLInputAttributes {}
 
-    let { class: otherClass, ...props }: InputProps = $props();
+    let { class: className, ...props }: InputProps = $props();
 </script>
 
-<input class={["input", otherClass]} {...props} />
+<input class={["input", className]} {...props} />

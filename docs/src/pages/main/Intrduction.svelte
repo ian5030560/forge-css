@@ -1,17 +1,27 @@
 <script lang="ts">
     import Text from "../../lib/Text.svelte";
-    import Header from "./Header.svelte";
+    import Header from "./components/Header.svelte";
     import Code from "../../lib/Code";
     import TableOfContents from "../../lib/TableOfContents";
+    import List from "../../lib/List";
+    import Button from "../../lib/Button";
+    import units from "../units";
+    import Link from "../../lib/Link.svelte";
 </script>
 
-<Header
-    title={"Introduction"}
-    description={"Forge-css is the light-weight css tool for creating utility-css by sass/scss files prepared."}
-/>
+<Header title={"Introduction"}>
+    {#snippet description()}
+        Forge-css is the light-weight css tool for creating utility-css by
+        sass/scss files prepared. It's inspired by <Link
+            class="font-size-median"
+            href="https://getbootstrap.com/">Bootstrap
+        </Link>.
+    {/snippet}
+</Header>
 
+<TableOfContents.Title type={3} linkTag={"usage"} content={"Usage"} />
 <TableOfContents.Title
-    type={3}
+    type={4}
     content={"Preparation(Optional)"}
     linkTag="preparation"
 />
@@ -31,7 +41,7 @@
 }`}
 />
 
-<TableOfContents.Title type={3} content={"Command"} linkTag="command" />
+<TableOfContents.Title type={4} content={"Command"} linkTag="command" />
 <Text contrast={"low"}>
     Use 'forge' command to build a utility css file instantly
 </Text>
@@ -50,5 +60,18 @@
         <Text>The configuration of all utility css.(optional)</Text>
     </div>
 </div>
-<TableOfContents.Title type={4} content={"Example"} linkTag="example" />
+<TableOfContents.Title type={5} content={"Example"} linkTag="example" />
 <Code.Block lang="bash" code={"forge -o output.css -c config.json"} />
+
+<TableOfContents.Title type={3} linkTag={"units"} content={"Units"} />
+<Text contrast={"low"}>
+    These units are used in the configuration file. All of them come from CSS
+    documentation website.
+</Text>
+<List.Root type="ul">
+    {#each Object.entries(units) as [_, unit]}
+        <List.Item>
+            <Link href={unit.url}>{unit.name}</Link>
+        </List.Item>
+    {/each}
+</List.Root>

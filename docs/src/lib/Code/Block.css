@@ -18,7 +18,7 @@
     color: var(--green-9);
 }
 
-.code-block-text{
+.code-block-content{
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-normal);
     font-family: monospace;

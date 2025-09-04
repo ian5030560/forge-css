@@ -15,7 +15,7 @@
     }
 
     const {
-        class: otherClass,
+        class: className,
         headerProps,
         header,
         bodyProps,
@@ -26,7 +26,7 @@
 </script>
 
 {#snippet tableSnippet()}
-    <table class={["table", otherClass]} {...props}>
+    <table class={["table", className]} {...props}>
         {#if headerProps}
             {@const { class: headerClass, ...restheaderProps } = headerProps}
             <thead class={["table-header", headerClass]} {...restheaderProps}>

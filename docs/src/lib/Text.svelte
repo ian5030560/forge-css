@@ -8,9 +8,9 @@
         contrast?: Contrast;
     }
 
-    const {children, class: otherClass, contrast = "high", ...props}: TextProps = $props();
+    const {children, class: className, contrast = "high", ...props}: TextProps = $props();
 </script>
 
-<span class={["text", otherClass]} data-text-contrast={contrast} {...props}>
+<span class={["text", className]} data-text-contrast={contrast} {...props}>
     {@render children?.()}
 </span>

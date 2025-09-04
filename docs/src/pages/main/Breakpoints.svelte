@@ -1,9 +1,9 @@
 <script lang="ts">
-    import Title from "../../lib/Title.svelte";
-    import Header from "./Header.svelte";
+    import Header from "./components/Header.svelte";
     import Table from "../../lib/Table";
     import Code from "../../lib/Code";
     import TableOfContents from "../../lib/TableOfContents";
+    import units from "../units";
 
     type BreakPointsData = {
         name: string;
@@ -20,18 +20,19 @@
     ];
 </script>
 
-<Header
-    title={"Breakpoints"}
-    description={"The breakpoints determines the responsive layout when the screen width changes acrosss devices."}
-/>
+<Header title={"Breakpoints"}>
+    {#snippet description()}
+        The breakpoints determines the responsive layout when the screen width changes acrosss devices.
+    {/snippet}
+</Header>
 
-<TableOfContents.Title linkTag={"available-points"} type={3} content={"Available points"}/>
+<TableOfContents.Title linkTag={"points"} type={3} content={"Points"}/>
 <Table.Root>
     {#snippet header()}
         <Table.Row>
             <Table.Cell header={true} scope="col" class="text-align-left">Name</Table.Cell>
             <Table.Cell header={true} scope="col" class="text-align-left">Class name</Table.Cell>
-            <Table.Cell header={true} scope="col" class="text-align-left">Width</Table.Cell>
+            <Table.Cell header={true} scope="col" class="text-align-left">Screen width</Table.Cell>
         </Table.Row>
     {/snippet}
     {#snippet body()}
@@ -48,17 +49,14 @@
 </Table.Root>
 
 <TableOfContents.Title linkTag={"configuration"} type={3} content={"Configuration"}/>
-<Code.Block copyable={false} lang={"json"} code={`
-    {
-        .....
-        "break-points": {
-            "xs": number | 576,
-            "sm": number | 576,
-            "md": number | 768,
-            "lg": number | 992,
-            "xlg": number | 1200,
-            "xxlg": number | 1400
-        },
-        .....
+<Code.Block copyable={false} lang={"json"} code={`{
+    "break-points": {
+        "xs": ${units["length"].name} | ${units["length-percentage"].name} | ${units["calc()"].name} (100px),
+        "sm": ${units["length"].name} | ${units["length-percentage"].name} | ${units["calc()"].name} (576px),
+        "md": ${units["length"].name} | ${units["length-percentage"].name} | ${units["calc()"].name} (768px),
+        "lg": ${units["length"].name} | ${units["length-percentage"].name} | ${units["calc()"].name} (992px),
+        "xlg": ${units["length"].name} | ${units["length-percentage"].name} | ${units["calc()"].name} (1200px),
+        "xxlg": ${units["length"].name} | ${units["length-percentage"].name} | ${units["calc()"].name} (1400px)
     }
+}
 `}/>

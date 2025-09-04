@@ -1,30 +1,25 @@
 <script lang="ts">
     import type { HTMLAttributes } from "svelte/elements";
     import "./Button.css";
-    
-    export type ButtonType = "primary" | "text" | "link";
 
-    export interface ButtonProps extends HTMLAttributes<HTMLElement> {
-        tag?: keyof HTMLElementTagNameMap;
-        buttonType?: ButtonType;
-        [key: string]: any;
+    export type Variant = "primary" | "text";
+
+    export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+        variant?: Variant;
     }
 
     const {
-        tag,
-        class: otherClass,
-        buttonType,
+        class: className,
+        variant,
         children,
-        ...restProps
+        ...props
     }: ButtonProps = $props();
 </script>
 
-<svelte:element
-    this={tag || "button"}
-    class={["button", otherClass]}
-    data-button-type={buttonType || "primary"}
-    role="button"
-    {...restProps}
+<button
+    class={["button", className]}
+    data-button-type={variant || "primary"}
+    {...props}
 >
     {@render children?.()}
-</svelte:element>
+</button>

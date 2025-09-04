@@ -37,17 +37,3 @@
 .button[data-button-type="text"]:active {
     background-color: var(--gray-5);
 }
-
-.button[data-button-type="link"] {
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--gray-12);
-}
-
-[data-theme="light"] .button[data-button-type="link"]:active {
-    filter: brightness(1.7);
-}
-
-[data-theme="dark"] .button[data-button-type="link"]:active {
-    filter: brightness(0.7);
-}

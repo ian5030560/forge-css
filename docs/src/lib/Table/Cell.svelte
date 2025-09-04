@@ -8,7 +8,7 @@
     }
 
     const {
-        class: otherClass,
+        class: className,
         header = false,
         scope = "row",
         children,
@@ -17,11 +17,11 @@
 </script>
 
 {#if header}
-    <th class={["table-cell", otherClass]} {scope} {...props}>
+    <th class={["table-cell", className]} {scope} {...props}>
         {@render children?.()}
     </th>
 {:else}
-    <td class={["table-cell", otherClass]} {...props}>
+    <td class={["table-cell", className]} {...props}>
         {@render children?.()}
     </td>
 {/if}

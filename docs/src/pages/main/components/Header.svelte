@@ -1,15 +1,16 @@
 <script lang="ts">
-    import Text from "../../lib/Text.svelte";
-    import Title from "../../lib/Title.svelte";
+    import type { Snippet } from "svelte";
+    import Text from "../../../lib/Text.svelte";
+    import Title from "../../../lib/Title.svelte";
 
     export interface HeaderProps {
         title: string;
-        description: string;
+        description: Snippet;
     }
     const props: HeaderProps = $props();
 </script>
 
 <Title type={2}>{props.title}</Title>
 <Text class="font-size-median" contrast={"low"}>
-    {props.description}
+    {@render props.description?.()}
 </Text>

@@ -3,7 +3,7 @@
     import type { TitleType } from "../Title.svelte";
     import type { WithChildren } from "../WithChildren";
 
-    type TableOfContentItem = {
+    export type TableOfContentItem = {
         title: string;
         tag: string;
         type: TitleType;

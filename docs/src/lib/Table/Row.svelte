@@ -3,8 +3,8 @@
 
 
     export interface RowProps extends HTMLAttributes<HTMLTableRowElement>{};
-    const {class: otherClass, children, ...props}: RowProps = $props();
+    const {class: className, children, ...props}: RowProps = $props();
 
 </script>
 
-<tr class={otherClass} {...props}>{@render children?.()}</tr>
+<tr class={className} {...props}>{@render children?.()}</tr>
