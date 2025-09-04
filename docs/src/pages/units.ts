@@ -1,6 +1,7 @@
 type UnitData = {
     name: string;
-    url: string;
+    url?: string;
+    description?: string;
 }
 
 export default {
@@ -15,5 +16,9 @@ export default {
     "calc()": {
         name: "calc()",
         url: "https://developer.mozilla.org/en-US/docs/Web/CSS/calc"
+    },
+    "boolean": {
+        name: "boolean",
+        description: "A true/false value."
     }
 } as Record<string, UnitData>;

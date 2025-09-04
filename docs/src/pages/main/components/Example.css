@@ -5,10 +5,11 @@
 }
 
 .example-board{
-    color: var(--gray-12);
     padding: var(--padding-1);
 }
 
 *[data-example-block]{
-    background-color: var(--orange-3);
+    background-color: var(--orange-9);
+    padding: var(--padding-1);
+    color: var(--gray-12);
 }

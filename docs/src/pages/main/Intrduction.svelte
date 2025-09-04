@@ -14,7 +14,8 @@
         Forge-css is the light-weight css tool for creating utility-css by
         sass/scss files prepared. It's inspired by <Link
             class="font-size-median"
-            href="https://getbootstrap.com/">Bootstrap
+            href="https://getbootstrap.com/"
+            >Bootstrap
         </Link>.
     {/snippet}
 </Header>
@@ -65,13 +66,23 @@
 
 <TableOfContents.Title type={3} linkTag={"units"} content={"Units"} />
 <Text contrast={"low"}>
-    These units are used in the configuration file. All of them come from CSS
-    documentation website.
+    These units are used in the configuration file. Some of them come from <Link
+        href="https://developer.mozilla.org/en-US/">
+        MDN Web Docs
+    </Link>.
 </Text>
-<List.Root type="ul">
+<List.Root type="ul" noHeaded={false}>
     {#each Object.entries(units) as [_, unit]}
         <List.Item>
-            <Link href={unit.url}>{unit.name}</Link>
+            {#if unit.url}
+                <Link href={unit.url}>{unit.name}</Link>
+            {:else}
+                <Text>{unit.name}</Text>
+            {/if}
+
+            {#if unit.description}
+                <Text class="pl-1" contrast={"low"}>{unit.description}</Text>
+            {/if}
         </List.Item>
     {/each}
 </List.Root>

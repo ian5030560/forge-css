@@ -90,11 +90,11 @@
 
 <TableOfContents.Title linkTag={"example"} type={4} content={"Example"} />
 <Example boardClass={"vstack gap-1"} code={`<div class="container p-1" data-example-block>container</div>
-<div class="container-sm p-1" data-example-block>container-sm</div>
-<div class="container-md p-1" data-example-block>container-md</div>
-<div class="container-lg p-1" data-example-block>container-lg</div>
-<div class="container-xlg p-1" data-example-block>container-xlg</div>
-<div class="container-xxlg p-1" data-example-block>container-xxlg</div>
+<div class="container-sm" data-example-block>container-sm</div>
+<div class="container-md" data-example-block>container-md</div>
+<div class="container-lg" data-example-block>container-lg</div>
+<div class="container-xlg" data-example-block>container-xlg</div>
+<div class="container-xxlg" data-example-block>container-xxlg</div>
 `}
 />
 

@@ -34,6 +34,10 @@
                 ),
             },
             {
+                path: "/stack",
+                component: createAsyncComponent("./pages/main/Stack.svelte"),
+            },
+            {
                 path: "404",
                 component: createAsyncComponent("./pages/NotFound.svelte"),
                 status: 404,
